@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Мое хобби</title>
+    <style>
+        body {
+            background-image: url('images/background.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 30px;
+            line-height: 1.6;
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(248, 249, 250, 0.9);
+            z-index: -1;
+        }
+        
+        .content {
+            position: relative;
+            z-index: 1;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 40px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .description {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 25px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .list-section {
+            margin-bottom: 30px;
+        }
+        
+        .list-section h2 {
+            color: #34495e;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 12px;
+            margin-top: 40px;
+        }
+        
+        ul.disc, ul.circle, ul.square {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 25px 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            backdrop-filter: blur(5px);
+        }
+        
+        ul.disc { list-style-type: disc; }
+        ul.circle { list-style-type: circle; }
+        ul.square { list-style-type: square; }
+        
+        li {
+            margin-bottom: 12px;
+            padding: 10px;
+            border-left: 4px solid #3498db;
+            background-color: rgba(248, 249, 250, 0.7);
+            border-radius: 4px;
+            transition: transform 0.2s;
+        }
+        
+        li:hover {
+            transform: translateX(5px);
+            background-color: rgba(236, 240, 241, 0.9);
+        }
+        
+        .back-link {
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .back-link a {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-weight: bold;
+        }
+        
+        .back-link a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Мое хобби</h1>
+        
+        <div class="description">
+            <p>Моё основное хобби - программирование. Мне нравится создавать что-то новое, решать интересные задачи и постоянно узнавать новые технологии и подходы в разработке.</p>
+        </div>
+        
+        <div class="list-section">
+            <h2>Мои интересы (чёрные кружки):</h2>
+            <ul class="disc">
+                <li><strong>Программирование</strong> - изучение новых языков и технологий</li>
+                <li><strong>Самообразование</strong> - постоянное узнавание чего-то нового</li>
+                <li><strong>Компьютерные игры</strong> - интересные игровые механики и сюжеты</li>
+                <li><strong>Чтение книг</strong> - особенно техническая и научная литература</li>
+            </ul>
+        </div>
+        
+        <div class="list-section">
+            <h2>Мои интересы (белые кружки):</h2>
+            <ul class="circle">
+                <li><strong>Программирование</strong> - изучение новых языков и технологий</li>
+                <li><strong>Самообразование</strong> - постоянное узнавание чего-то нового</li>
+                <li><strong>Компьютерные игры</strong> - интересные игровые механики и сюжеты</li>
+                <li><strong>Чтение книг</strong> - особенно техническая и научная литература</li>
+            </ul>
+        </div>
+        
+        <div class="list-section">
+            <h2>Мои интересы (квадраты):</h2>
+            <ul class="square">
+                <li><strong>Программирование</strong> - изучение новых языков и технологий</li>
+                <li><strong>Самообразование</strong> - постоянное узнавание чего-то нового</li>
+                <li><strong>Компьютерные игры</strong> - интересные игровые механики и сюжеты</li>
+                <li><strong>Чтение книг</strong> - особенно техническая и научная литература</li>
+            </ul>
+        </div>
+        
+        <div class="back-link">
+            <a href="index_1_2_3.html">Вернуться на главную страницу</a>
+        </div>
+    </div>
+</body>
+</html>
