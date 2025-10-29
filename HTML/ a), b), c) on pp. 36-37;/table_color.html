@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Палитра RGB</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 2px solid #333;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            width: 150px;
+            height: 80px;
+        }
+        th {
+            background-color: #fff;
+            color: #333;
+        }
+        .red { background-color: #FF0000; color: white; }
+        .green { background-color: #00FF00; color: black; }
+        .blue { background-color: #0000FF; color: white; }
+        .yellow { background-color: #FFFF00; color: black; }
+        .magenta { background-color: #FF00FF; color: white; }
+        .cyan { background-color: #00FFFF; color: black; }
+    </style>
+</head>
+<body>
+    <h1>Палитра RGB и комбинации цветов</h1>
+    
+    <table>
+        <tr>
+            <th></th>
+            <th>Красный<br>#FF0000</th>
+            <th>Зеленый<br>#00FF00</th>
+            <th>Синий<br>#0000FF</th>
+        </tr>
+        <tr>
+            <th>Красный<br>#FF0000</th>
+            <td class="red">Красный<br>#FF0000</td>
+            <td class="yellow">Желтый<br>#FFFF00</td>
+            <td class="magenta">Пурпурный<br>#FF00FF</td>
+        </tr>
+        <tr>
+            <th>Зеленый<br>#00FF00</th>
+            <td class="yellow">Желтый<br>#FFFF00</td>
+            <td class="green">Зеленый<br>#00FF00</td>
+            <td class="cyan">Бирюзовый<br>#00FFFF</td>
+        </tr>
+        <tr>
+            <th>Синий<br>#0000FF</th>
+            <td class="magenta">Пурпурный<br>#FF00FF</td>
+            <td class="cyan">Бирюзовый<br>#00FFFF</td>
+            <td class="blue">Синий<br>#0000FF</td>
+        </tr>
+    </table>
+</body>
+</html>
