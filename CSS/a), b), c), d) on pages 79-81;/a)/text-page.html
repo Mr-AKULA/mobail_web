@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Столбчатая диаграмма популярности браузеров за 2010 год</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+        
+        .chart {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            height: 400px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            background-color: #fafafa;
+            position: relative;
+        }
+        
+        /* Вертикальная ось Y */
+        .y-axis {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 40px;
+            border-right: 2px solid #333;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding-right: 10px;
+        }
+        
+        .y-label {
+            text-align: right;
+            font-size: 12px;
+            color: #666;
+            transform: translateY(50%);
+        }
+        
+        /* Горизонтальная ось X */
+        .x-axis {
+            position: absolute;
+            left: 40px;
+            right: 0;
+            bottom: 0;
+            height: 30px;
+            border-top: 2px solid #333;
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            padding-top: 5px;
+        }
+        
+        .x-label {
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+            width: 80px;
+        }
+        
+        /* Столбцы диаграммы */
+        .bar-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 80px;
+            height: 100%;
+        }
+        
+        .bar {
+            width: 50px;
+            background: linear-gradient(to top, #4a90e2, #2c6fb7);
+            border-radius: 4px 4px 0 0;
+            position: relative;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .bar:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        
+        .bar-value {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            font-weight: bold;
+            color: #2c3e50;
+            background: rgba(255,255,255,0.9);
+            padding: 2px 6px;
+            border-radius: 3px;
+            border: 1px solid #ddd;
+        }
+        
+        .browser-name {
+            margin-top: 10px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #2c3e50;
+            text-align: center;
+        }
+        
+        .legend {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            gap: 20px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 12px;
+        }
+        
+        .legend-color {
+            width: 15px;
+            height: 15px;
+            background: linear-gradient(to top, #4a90e2, #2c6fb7);
+            border-radius: 2px;
+        }
+        
+        .data-source {
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+            margin-top: 20px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Популярность браузеров за 2010 год</h1>
+        
+        <div class="chart">
+            <!-- Ось Y -->
+            <div class="y-axis">
+                <div class="y-label">80%</div>
+                <div class="y-label">60%</div>
+                <div class="y-label">40%</div>
+                <div class="y-label">20%</div>
+                <div class="y-label">0%</div>
+            </div>
+            
+            <!-- Ось X -->
+            <div class="x-axis">
+                <div class="x-label">Internet Explorer</div>
+                <div class="x-label">Firefox</div>
+                <div class="x-label">Safari</div>
+                <div class="x-label">Opera</div>
+            </div>
+            
+            <!-- Столбцы диаграммы -->
+            <div class="bar-container">
+                <div class="bar" style="height: 61.43%;" data-value="61.43%">
+                    <div class="bar-value">61.43%</div>
+                </div>
+                <div class="browser-name">IE</div>
+            </div>
+            
+            <div class="bar-container">
+                <div class="bar" style="height: 24.40%;" data-value="24.40%">
+                    <div class="bar-value">24.40%</div>
+                </div>
+                <div class="browser-name">Firefox</div>
+            </div>
+            
+            <div class="bar-container">
+                <div class="bar" style="height: 4.55%;" data-value="4.55%">
+                    <div class="bar-value">4.55%</div>
+                </div>
+                <div class="browser-name">Safari</div>
+            </div>
+            
+            <div class="bar-container">
+                <div class="bar" style="height: 2.37%;" data-value="2.37%">
+                    <div class="bar-value">2.37%</div>
+                </div>
+                <div class="browser-name">Opera</div>
+            </div>
+        </div>
+        
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color"></div>
+                <span>Доля использования браузеров</span>
+            </div>
+        </div>
+        
+        <div class="data-source">
+            Данные за 2010 год: IE - 61.43%, Firefox - 24.40%, Safari - 4.55%, Opera - 2.37%
+        </div>
+    </div>
+
+    <script>
+        // Добавляем интерактивность для столбцов
+        document.addEventListener('DOMContentLoaded', function() {
+            const bars = document.querySelectorAll('.bar');
+            
+            bars.forEach(bar => {
+                bar.addEventListener('mouseenter', function() {
+                    const value = this.getAttribute('data-value');
+                    const browser = this.closest('.bar-container').querySelector('.browser-name').textContent;
+                    this.style.background = 'linear-gradient(to top, #e74c3c, #c0392b)';
+                });
+                
+                bar.addEventListener('mouseleave', function() {
+                    this.style.background = 'linear-gradient(to top, #4a90e2, #2c6fb7)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
