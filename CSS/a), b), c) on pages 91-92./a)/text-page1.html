@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Буквица с плавающим блоком</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        
+        .dropcap-container {
+            margin: 20px 0;
+        }
+        
+        .dropcap {
+            float: left;
+            font-size: 3.5em;
+            line-height: 0.8;
+            margin-top: 0.2em;
+            margin-right: 0.1em;
+            margin-bottom: -0.1em;
+            font-weight: bold;
+            color: #8B4513;
+        }
+        
+        .text-content {
+            text-align: justify;
+            font-size: 1.1em;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #5a3921;
+            margin-bottom: 30px;
+        }
+        
+        .example-box {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Буквица с плавающим блоком</h1>
+    
+    <div class="example-box">
+        <div class="dropcap-container">
+            <div class="dropcap">В</div>
+            <div class="text-content">
+                еличественная буквица, украшающая начало текста, создает особое настроение и привлекает внимание читателя. Этот прием, известный как инициал, использовался еще в средневековых рукописях, где первые буквы разделов украшались сложными орнаментами и миниатюрами. В современном веб-дизайне буквицы помогают визуально отделить начало статьи или главы, задавая тон всему последующему тексту.
+            </div>
+        </div>
+        
+        <div class="text-content">
+            <p>Создание буквицы с помощью плавающего блока позволяет добиться интересного визуального эффекта, когда буква частично выступает вверх за пределы первой строки и одновременно смещена вниз относительно основного текста. Это придает композиции динамичность и элегантность.</p>
+            
+            <p>Для реализации такого эффекта используется комбинация CSS-свойств: float для обтекания текстом, отрицательные margin для точного позиционирования и соответствующие значения line-height для выравнивания по базовой линии текста.</p>
+        </div>
+    </div>
+</body>
+</html>
