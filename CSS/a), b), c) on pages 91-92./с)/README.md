@@ -1,0 +1,310 @@
+в*) Посредством абсолютного позиционирования изобразите точечный гра
+фик математической функции. Пример для y=x2 показан на рис. 3.33.  
+У к а з а н и е: Создайте изображение с нарисованными на нем осями X и Y. 
+Поверх него поместите точки графика абсолютным позиционированием. 
+<img width="435" height="322" alt="image" src="https://github.com/user-attachments/assets/4f610690-49bc-4355-baf3-758e870928f8" />
+
+# График функции y=x² с абсолютным позиционированием
+
+Создам точечный график функции y=x² с использованием абсолютного позиционирования точек на координатной плоскости.
+
+```html
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>График функции y=x²</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .graph-container {
+            position: relative;
+            width: 600px;
+            height: 600px;
+            background-color: white;
+            border: 2px solid #333;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        /* Оси координат */
+        .axis {
+            position: absolute;
+            background-color: #333;
+        }
+        
+        .x-axis {
+            width: 100%;
+            height: 2px;
+            bottom: 50%;
+            left: 0;
+        }
+        
+        .y-axis {
+            width: 2px;
+            height: 100%;
+            left: 50%;
+            top: 0;
+        }
+        
+        /* Стрелки осей */
+        .arrow {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
+        }
+        
+        .x-arrow {
+            border-width: 8px 0 8px 12px;
+            border-color: transparent transparent transparent #333;
+            right: 10px;
+            bottom: 50%;
+            margin-bottom: -8px;
+        }
+        
+        .y-arrow {
+            border-width: 12px 8px 0 8px;
+            border-color: #333 transparent transparent transparent;
+            left: 50%;
+            top: 10px;
+            margin-left: -8px;
+        }
+        
+        /* Подписи осей */
+        .axis-label {
+            position: absolute;
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .x-label {
+            bottom: 45%;
+            right: 25px;
+        }
+        
+        .y-label {
+            top: 25px;
+            left: 52%;
+        }
+        
+        /* Деления на осях */
+        .tick {
+            position: absolute;
+            background-color: #333;
+        }
+        
+        .x-tick {
+            width: 2px;
+            height: 10px;
+            bottom: 50%;
+            margin-bottom: -5px;
+        }
+        
+        .y-tick {
+            width: 10px;
+            height: 2px;
+            left: 50%;
+            margin-left: -5px;
+        }
+        
+        /* Подписи делений */
+        .tick-label {
+            position: absolute;
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .x-tick-label {
+            bottom: 45%;
+            text-align: center;
+            width: 20px;
+            margin-left: -10px;
+        }
+        
+        .y-tick-label {
+            left: 47%;
+            text-align: right;
+            width: 20px;
+            margin-top: -8px;
+        }
+        
+        /* Точки графика */
+        .point {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background-color: #ff4444;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 3px rgba(255, 68, 68, 0.5);
+        }
+        
+        .controls {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 600px;
+            text-align: center;
+        }
+        
+        .function-display {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .description {
+            line-height: 1.6;
+            color: #666;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>График функции y = x²</h1>
+    
+    <div class="graph-container" id="graph">
+        <!-- Оси координат -->
+        <div class="axis x-axis"></div>
+        <div class="axis y-axis"></div>
+        
+        <!-- Стрелки осей -->
+        <div class="arrow x-arrow"></div>
+        <div class="arrow y-arrow"></div>
+        
+        <!-- Подписи осей -->
+        <div class="axis-label x-label">X</div>
+        <div class="axis-label y-label">Y</div>
+        
+        <!-- Деления и подписи будут добавлены через JavaScript -->
+    </div>
+    
+    <div class="controls">
+        <div class="function-display">y = x²</div>
+        <p>График квадратичной функции - парабола</p>
+        
+        <div class="description">
+            <p>Этот график создан с помощью абсолютного позиционирования HTML-элементов:</p>
+            <ul>
+                <li>Координатная плоскость реализована как контейнер с относительным позиционированием</li>
+                <li>Оси X и Y позиционированы абсолютно</li>
+                <li>Точки графика расставлены с абсолютным позиционированием по вычисленным координатам</li>
+                <li>Каждая точка представляет значение функции y=x² для соответствующего x</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Функция для создания графика
+        function createGraph() {
+            const graph = document.getElementById('graph');
+            const width = graph.offsetWidth;
+            const height = graph.offsetHeight;
+            const centerX = width / 2;
+            const centerY = height / 2;
+            const scale = 40; // Пикселей на единицу
+            
+            // Создаем деления на осях
+            for (let i = -7; i <= 7; i++) {
+                if (i === 0) continue; // Пропускаем ноль (центр)
+                
+                // Деления на оси X
+                const xTick = document.createElement('div');
+                xTick.className = 'tick x-tick';
+                xTick.style.left = (centerX + i * scale) + 'px';
+                graph.appendChild(xTick);
+                
+                // Подписи на оси X
+                const xLabel = document.createElement('div');
+                xLabel.className = 'tick-label x-tick-label';
+                xLabel.textContent = i;
+                xLabel.style.left = (centerX + i * scale) + 'px';
+                graph.appendChild(xLabel);
+                
+                // Деления на оси Y
+                const yTick = document.createElement('div');
+                yTick.className = 'tick y-tick';
+                yTick.style.top = (centerY - i * scale) + 'px';
+                graph.appendChild(yTick);
+                
+                // Подписи на оси Y
+                const yLabel = document.createElement('div');
+                yLabel.className = 'tick-label y-tick-label';
+                yLabel.textContent = i;
+                yLabel.style.top = (centerY - i * scale) + 'px';
+                graph.appendChild(yLabel);
+            }
+            
+            // Создаем точки графика y = x²
+            for (let x = -5; x <= 5; x += 0.2) {
+                const y = x * x;
+                
+                // Пропускаем точки за пределами видимой области
+                if (Math.abs(x) > 7 || y > 7) continue;
+                
+                const point = document.createElement('div');
+                point.className = 'point';
+                
+                // Вычисляем координаты с учетом масштаба
+                const pointX = centerX + x * scale;
+                const pointY = centerY - y * scale;
+                
+                point.style.left = pointX + 'px';
+                point.style.top = pointY + 'px';
+                
+                // Добавляем всплывающую подсказку
+                point.title = `(${x.toFixed(1)}, ${y.toFixed(1)})`;
+                
+                graph.appendChild(point);
+            }
+        }
+        
+        // Создаем график после загрузки страницы
+        document.addEventListener('DOMContentLoaded', createGraph);
+    </script>
+</body>
+</html>
+```
+
+## Особенности реализации:
+
+1. **Абсолютное позиционирование**:
+   - Оси координат позиционированы абсолютно относительно контейнера
+   - Каждая точка графика позиционирована абсолютно по вычисленным координатам
+
+2. **Координатная система**:
+   - Центр координат находится в середине контейнера
+   - Масштаб: 40 пикселей на единицу
+   - Оси X и Y с делениями и подписями
+
+3. **График функции**:
+   - Точки расставлены для значений x от -5 до 5 с шагом 0.2
+   - Каждая точка представляет значение y=x²
+   - При наведении на точку показываются её координаты
+
+4. **Визуальное оформление**:
+   - Красные точки для графика
+   - Чёрные оси с делениями
+   - Подписи координат
+   - Тени и плавные переходы для улучшения визуального восприятия
+
+Этот пример точно воспроизводит функциональность, показанную на рисунке 3.33, с использованием абсолютного позиционирования для создания точечного графика математической функции.
+
+<img width="796" height="956" alt="image" src="https://github.com/user-attachments/assets/46e4e557-ced8-48e2-baa2-07169ecbcd40" />
