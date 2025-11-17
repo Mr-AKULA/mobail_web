@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сравнение поведения браузеров</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 20px;
+            padding: 20px;
+            background-color: #f5f5f5;
+            font-family: 'Arial', sans-serif;
+            line-height: 1.4;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+            padding: 15px;
+            text-align: center;
+            color: #2c3e50;
+            background-color: #e8f4f8;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        /* Параграф фиксированного размера 300x100 пикселей */
+        .fixed-paragraph {
+            width: 300px;
+            height: 100px;
+            padding: 10px;
+            background-color: white;
+            border: 2px solid #e74c3c;
+            overflow: auto; /* Добавляем прокрутку */
+        }
+
+        /* Параграф без фиксированной высоты для сравнения */
+        .auto-paragraph {
+            width: 300px;
+            padding: 10px;
+            background-color: white;
+            border: 2px solid #27ae60;
+        }
+
+        .browser-comparison {
+            background-color: #fff3cd;
+            padding: 20px;
+            border: 1px solid #ffeaa7;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .browser-comparison h3 {
+            color: #856404;
+            margin-bottom: 15px;
+        }
+
+        .note {
+            background-color: #d4edda;
+            padding: 15px;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Сравнение поведения браузеров с фиксированным размером параграфа</h1>
+
+    <div class="container">
+        <div>
+            <h2>Параграф 300×100px с большим текстом:</h2>
+            <p class="fixed-paragraph">
+                Это демонстрационный текст, который показывает поведение параграфа с фиксированными размерами 300 на 100 пикселей. 
+                Когда текст не помещается в заданные границы, различные браузеры могут вести себя по-разному. 
+                В современных браузерах, таких как Firefox, Chrome и Edge, обычно добавляется полоса прокрутки, 
+                позволяющая просмотреть весь текст. Однако в старых версиях Internet Explorer поведение может отличаться - 
+                текст может обрезаться без возможности прокрутки или выходить за границы контейнера. 
+                Это важное различие, которое необходимо учитывать при веб-разработке для обеспечения кроссбраузерной совместимости.
+                Дополнительный текст для заполнения пространства и демонстрации разницы в отображении контента.
+            </p>
+        </div>
+
+        <div>
+            <h2>Параграф без фиксированной высоты:</h2>
+            <p class="auto-paragraph">
+                Это демонстрационный текст, который показывает поведение параграфа с фиксированными размерами 300 на 100 пикселей. 
+                Когда текст не помещается в заданные границы, различные браузеры могут вести себя по-разному. 
+                В современных браузерах, таких как Firefox, Chrome и Edge, обычно добавляется полоса прокрутки, 
+                позволяющая просмотреть весь текст. Однако в старых версиях Internet Explorer поведение может отличаться - 
+                текст может обрезаться без возможности прокрутки или выходить за границы контейнера. 
+                Это важное различие, которое необходимо учитывать при веб-разработке для обеспечения кроссбраузерной совместимости.
+                Дополнительный текст для заполнения пространства и демонстрации разницы в отображении контента.
+            </p>
+        </div>
+    </div>
+
+    <div class="browser-comparison">
+        <h3>Ожидаемые различия между Internet Explorer и Firefox:</h3>
+        <ul>
+            <li><strong>Internet Explorer (старые версии):</strong>
+                <ul>
+                    <li>Текст может выходить за границы контейнера</li>
+                    <li>Отсутствие автоматической прокрутки</li>
+                    <li>Проблемы с отображением свойства overflow</li>
+                    <li>Неправильный расчет высоты с учетом padding</li>
+                </ul>
+            </li>
+            <li><strong>Firefox (и другие современные браузеры):</strong>
+                <ul>
+                    <li>Корректное отображение полосы прокрутки</li>
+                    <li>Текст остается внутри заданных границ</li>
+                    <li>Правильная работа свойства overflow: auto</li>
+                    <li>Точное соблюдение размеров 300×100px</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="note">
+        <h3>Примечание для тестирования:</h3>
+        <p>Для реального сравнения откройте эту страницу в:</p>
+        <ul>
+            <li>Internet Explorer 11 (или эмуляторе старых версий)</li>
+            <li>Mozilla Firefox (последняя версия)</li>
+            <li>Google Chrome (последняя версия)</li>
+            <li>Microsoft Edge (последняя версия)</li>
+        </ul>
+        <p>Обратите внимание на отображение полосы прокрутки и поведения текста внутри фиксированного контейнера.</p>
+    </div>
+
+    <script>
+        // Добавляем информацию о текущем браузере
+        document.addEventListener('DOMContentLoaded', function() {
+            const browserInfo = document.createElement('div');
+            browserInfo.style.cssText = 'background: #e9ecef; padding: 10px; margin-top: 20px; border-radius: 5px; font-family: monospace;';
+            browserInfo.innerHTML = `
+                <strong>Информация о браузере:</strong><br>
+                User Agent: ${navigator.userAgent}<br>
+                Браузер: ${detectBrowser()}
+            `;
+            document.body.appendChild(browserInfo);
+
+            function detectBrowser() {
+                const userAgent = navigator.userAgent;
+                if (userAgent.includes('Firefox')) return 'Mozilla Firefox';
+                if (userAgent.includes('Chrome')) return 'Google Chrome';
+                if (userAgent.includes('Safari')) return 'Safari';
+                if (userAgent.includes('Edge')) return 'Microsoft Edge';
+                if (userAgent.includes('Trident') || userAgent.includes('MSIE')) return 'Internet Explorer';
+                return 'Неизвестный браузер';
+            }
+        });
+    </script>
+</body>
+</html>
