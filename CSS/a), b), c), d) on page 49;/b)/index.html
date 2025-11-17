@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Моя первая страница</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <style>
+        /* Уникальный фон только для главной страницы */
+        body.home-page {
+            background-color: #fff0f5; /* Светло-розовый фон */
+        }
+        
+        .welcome-message {
+            text-align: center;
+            font-size: 24px;
+            color: #e74c3c;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .nav-links a {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            background-color: #2980b9;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body class="home-page">
+    <div class="container">
+        <div class="welcome-message">🎉 Добро пожаловать на мой сайт!</div>
+        
+        <h1>Главная страница</h1>
+        
+        <div>
+            <h2>Обо мне</h2>
+            <p>Привет! Меня зовут Павел Алексеев, и это моя первая веб-страница с использованием CSS.</p>
+            <p>
+                <span style="color: #ff4500; font-weight: bold;">Алексеев</span>
+                <span style="color: #2e8b57; font-weight: bold;">Павел</span>
+                <span style="color: #1e90ff; font-weight: bold;">Васильевич</span>
+            </p>
+        </div>
+        
+        <div class="nav-links">
+            <h2>Навигация по сайту</h2>
+            <p>
+                <a href="hobby.html">🎯 Мое хобби</a>
+                <a href="links.html">🔗 Любимые сайты</a>
+                <a href="computer.html">💻 Мой компьютер</a>
+            </p>
+        </div>
+        
+        <div>
+            <h2>Особенности главной страницы</h2>
+            <p>Эта страница имеет <strong style="color: #e74c3c;">уникальный светло-розовый фон</strong>, в то время как все остальные страницы сайта имеют голубой фон.</p>
+        </div>
+    </div>
+</body>
+</html>
