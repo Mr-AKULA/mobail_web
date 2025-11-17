@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Текстовая страница с форматированием</title>
+    <style>
+        /* Общие стили для страницы */
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Стили для заголовка */
+        h1 {
+            font-family: 'Arial', 'Helvetica', sans-serif;
+            font-size: 16pt;
+            font-weight: bold;
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #3498db;
+        }
+
+        /* Стили для текста */
+        .content-text {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-size: 12pt;
+            line-height: 1.5; /* Полуторный межстрочный интервал */
+            text-align: justify;
+            color: #333;
+        }
+
+        /* Красная строка 1,5 см */
+        .content-text p {
+            text-indent: 1.5cm;
+            margin-bottom: 1.2em;
+        }
+
+        /* Первый абзац после заголовка без красной строки */
+        .content-text p:first-of-type {
+            text-indent: 0;
+        }
+
+        /* Стили для подзаголовков */
+        h2 {
+            font-family: 'Arial', 'Helvetica', sans-serif;
+            font-size: 14pt;
+            font-weight: bold;
+            color: #34495e;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        /* Выделение важных моментов */
+        .important {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        /* Стили для пиктограмм Wingdings */
+        .wingdings {
+            font-family: 'Wingdings';
+            font-size: 20pt;
+            margin-right: 10px;
+            vertical-align: middle;
+            color: #e74c3c;
+        }
+
+        .wingdings-small {
+            font-family: 'Wingdings';
+            font-size: 16pt;
+            margin-right: 8px;
+            vertical-align: middle;
+            color: #3498db;
+        }
+
+        .icon-section {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+
+        .icon-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .icon-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Специальные стили для разделов с иконками */
+        .feature-block {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .feature-block h3 {
+            display: flex;
+            align-items: center;
+            font-size: 16pt;
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>
+            <span class="wingdings">&#x270E;</span>
+            Искусство программирования
+            <span class="wingdings">&#x270E;</span>
+        </h1>
+        
+        <div class="content-text">
+            <p>
+                <span class="wingdings-small">&#x2691;</span>
+                Программирование — это не просто написание кода, а настоящее искусство, требующее творческого подхода, логического мышления и внимания к деталям. В современном мире программирование стало фундаментальным навыком, открывающим двери к бесконечным возможностям.
+            </p>
+
+            <div class="feature-block">
+                <h3><span class="wingdings">&#x263C;</span> Ключевые преимущества программирования</h3>
+                <ul class="icon-list">
+                    <li><span class="wingdings">&#x2713;</span> Развитие логического мышления</li>
+                    <li><span class="wingdings">&#x2713;</span> Творческая самореализация</li>
+                    <li><span class="wingdings">&#x2713;</span> Высокий спрос на рынке труда</li>
+                    <li><span class="wingdings">&#x2713;</span> Возможность работать удаленно</li>
+                </ul>
+            </div>
+
+            <p>
+                <span class="wingdings-small">&#x270D;</span>
+                Каждая строка кода подобна кисти художника — она может создавать удивительные произведения, решать сложные задачи и преобразовывать цифровой ландшафт. Программисты сегодня — это архитекторы виртуального мира, строители будущего и решатели проблем глобального масштаба.
+            </p>
+
+            <h2>
+                <span class="wingdings-small">&#x279C;</span>
+                Эволюция языков программирования
+            </h2>
+
+            <p>
+                <span class="wingdings-small">&#x27A4;</span>
+                За последние десятилетия языки программирования прошли значительную эволюцию. От низкоуровневых языков, таких как Assembler, до высокоуровневых современных языков, таких как Python и JavaScript, каждый этап развития приносил новые парадигмы и подходы к решению задач.
+            </p>
+
+            <p>
+                <span class="wingdings-small">&#x2609;</span>
+                Объектно-ориентированное программирование, функциональное программирование, реактивные подходы — все эти методологии расширяют工具箱 разработчика, позволяя выбирать оптимальные решения для конкретных задач. Важно понимать, что не существует «лучшего» языка программирования — каждый инструмент имеет свою область применения.
+            </p>
+
+            <div class="important">
+                <span class="wingdings">&#x26A0;</span>
+                <strong>Важно:</strong> Успешный программист постоянно учится и адаптируется к новым технологиям. Технологический ландшафт меняется стремительно, и то, что было актуально вчера, может устареть уже завтра.
+            </div>
+
+            <h2>
+                <span class="wingdings-small">&#x2714;</span>
+                Принципы качественного кода
+            </h2>
+
+            <p>
+                <span class="wingdings-small">&#x2605;</span>
+                Качество кода определяется не только его работоспособностью, но и читаемостью, поддерживаемостью и эффективностью. Чистый код — это код, который легко понимать, изменять и расширять. Он следует принципам SOLID, использует понятные именования переменных и функций, и содержит минимальное количество комментариев, потому что сам код говорит за себя.
+            </p>
+
+            <div class="icon-section">
+                <span class="wingdings">&#x2630;</span>
+                <div style="margin-left: 15px;">
+                    <strong>Основные принципы SOLID:</strong><br>
+                    <span class="wingdings-small">&#x25B6;</span> Single Responsibility<br>
+                    <span class="wingdings-small">&#x25B6;</span> Open/Closed<br>
+                    <span class="wingdings-small">&#x25B6;</span> Liskov Substitution<br>
+                    <span class="wingdings-small">&#x25B6;</span> Interface Segregation<br>
+                    <span class="wingdings-small">&#x25B6;</span> Dependency Inversion
+                </div>
+            </div>
+
+            <p>
+                <span class="wingdings-small">&#x2699;</span>
+                Тестирование стало неотъемлемой частью процесса разработки. Автоматизированные тесты обеспечивают надежность приложения и позволяют безопасно вносить изменения. Continuous Integration и Continuous Deployment стали стандартом в индустрии, ускоряя delivery и улучшая качество продукта.
+            </p>
+
+            <div class="feature-block">
+                <h3><span class="wingdings">&#x272A;</span> Технологии будущего</h3>
+                <ul class="icon-list">
+                    <li><span class="wingdings">&#x269B;</span> Искусственный интеллект</li>
+                    <li><span class="wingdings">&#x2699;</span> Машинное обучение</li>
+                    <li><span class="wingdings">&#x26A1;</span> Блокчейн технологии</li>
+                    <li><span class="wingdings">&#x2600;</span> Квантовые вычисления</li>
+                </ul>
+            </div>
+
+            <p>
+                <span class="wingdings-small">&#x2708;</span>
+                В заключение стоит отметить, что искусство программирования продолжает развиваться. Новые технологии, такие как искусственный интеллект, машинное обучение и блокчейн, открывают перед разработчиками невероятные перспективы. Будущее программирования — это синтез человеческого творчества и вычислительной мощи, создающий решения для самых сложных вызовов современности.
+            </p>
+
+            <div style="text-align: center; margin-top: 30px; padding: 20px; background: #2c3e50; color: white; border-radius: 8px;">
+                <span class="wingdings" style="font-size: 24pt; color: #e74c3c;">&#x272F;</span>
+                <div style="margin-top: 10px;">
+                    <strong>Программируйте с душой!</strong><br>
+                    <span class="wingdings-small">&#x2764;</span> Создавайте удивительные вещи
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Дополнительная информация о символах Wingdings
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Использованные символы Wingdings:');
+            console.log('✎ - Карандаш (редактирование)');
+            console.log('⚑ - Флаг (начало раздела)');
+            console.log('✍ - Пишущая рука (творчество)');
+            console.log('➜ - Стрелка (направление)');
+            console.log('➤ - Заполненная стрелка (пункты)');
+            console.log('☉ - Солнце (идеи)');
+            console.log('⚠ - Предупреждение (важная информация)');
+            console.log('✔ - Галочка (принципы)');
+            console.log('★ - Звезда (качество)');
+            console.log('☰ - Меню (список)');
+            console.log('▶ - Треугольник (подпункты)');
+            console.log('⚙ - Шестеренка (технологии)');
+            console.log('✪ - Закрашенная звезда (будущее)');
+            console.log('⚛ - Атом (искусственный интеллект)');
+            console.log('⚡ - Молния (блокчейн)');
+            console.log('✈ - Самолет (будущее)');
+            console.log('✷ - Снежинка (креативность)');
+            console.log('❤ - Сердце (любовь к программированию)');
+        });
+    </script>
+</body>
+</html>
