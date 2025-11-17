@@ -1,0 +1,22 @@
+$(document)
+	.on('click', '[data-toggle="dropdown"]', function(e) {
+		var $this = $(this), p = $this.closest('.dropdown'), d = $('.dropdown');
+		if ( !p.hasClass('open') ) {
+			d.removeClass('open');
+			p.addClass('open');
+		} else {
+			d.removeClass('open');
+		}
+		return false;
+	})
+	.on('click', function(e) {
+		var a = $('.dropdown-html, .dropdown-menu');
+		
+		if (!a.is(e.target) && a.has(e.target).length === 0) {
+			a.closest('.dropdown').removeClass('open');
+		}
+	})
+	.on('click', '.dropdown-html, .dropdown-menu', function(e) {
+		e.stopPropagation();
+	});
+	

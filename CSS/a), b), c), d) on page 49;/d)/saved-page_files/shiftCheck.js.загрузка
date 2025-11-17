@@ -1,0 +1,17 @@
+$.fn.shiftCheck = function() {
+	var lastChecked, $boxes = this;
+
+	$boxes.click(function(e) {
+		if ( ! lastChecked ) {
+			lastChecked = this;
+			return;
+		}
+
+		if ( e.shiftKey ) {
+			var start = $boxes.index(this), end = $boxes.index(lastChecked);
+			$boxes.slice(Math.min(start, end), Math.max(start, end) + 1).prop('checked', lastChecked.checked);
+		}
+
+		lastChecked = this;
+	});
+};

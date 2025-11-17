@@ -1,0 +1,22 @@
+.ndbox-lock, .ndbox-lock-test {overflow:hidden;}
+.ndbox-over {display:none; z-index:8010; overflow:auto; position:fixed; top:0; bottom:0; left:0; right:0; background:rgba(0,0,0,.7);}
+.ndbox-margin .ndbox-over {overflow-y:scroll;}
+.ndbox-wrap {position:relative; margin:0 auto; width:500px; max-width:100%; z-index:8011;}
+.ndbox-inner {position:relative; overflow:hidden; color:#353535; background:#fff; padding:15px;}
+.ndbox-close {position:absolute; top:0; right:0; margin:0; padding:0; border:0; outline:none; background:transparent; display:block; width:30px; height:30px; cursor:pointer; z-index:2;}
+.ndbox-close:after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border-width: 0;
+	color:#888;
+    background: url('/static/img/close-icon.svg') no-repeat center center;
+	background-size: 10px 10px;
+    box-sizing: border-box;
+    z-index: 2;
+}
+.ndbox-close:hover:after {background-color:#ddd}

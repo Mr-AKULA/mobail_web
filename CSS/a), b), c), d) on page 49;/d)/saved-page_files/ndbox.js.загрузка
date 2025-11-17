@@ -1,0 +1,127 @@
+var ndbox_arr = [],
+	ndbox_id = null,
+	ndbox_opened = false;
+
+;(function ($, window, document, undefined) {
+	"use strict";
+	
+	var defaults = {
+			single: true,
+			resize: true,
+			width: 700,
+			padding: 0,
+			closeClick: true,
+			selfClass: ''
+		};
+	
+	$.ndbox = {
+		centered: function(id) {
+			var $this = $('#ndbox-wrap-' + id),
+				marginTop,
+				marginBottom = 20;
+			
+			marginTop = (window.innerHeight - $this.outerHeight()) / 2;
+			if ( marginTop <= 0 ) marginTop = 20;
+			
+			$this.css({
+				marginTop: marginTop + 'px',
+				marginBottom: marginBottom + 'px'
+			});
+		},
+		open: function(data, opt) {
+			opt = $.extend({}, defaults, opt);
+			
+			if ( opt.single ) this.closeAll();
+			
+			ndbox_id = ndbox_arr.length + 1;
+			ndbox_arr.push(ndbox_id);
+			
+			var h = $('html'),
+				b = $('body'),
+				overClass = ( opt.closeClick == true ) ? 'ndbox-over ndbox-clickclose' : 'ndbox-over',
+				tpl = '',
+				style = [
+					'width:' + opt.width + 'px',
+					'max-width:' + ( opt.resize == true ? '100%' : 'none' ),
+				];
+				
+			if ( h.hasClass('ndbox-loading') ) return false;
+			
+			h.addClass('ndbox-loading ndbox-lock');
+			
+			if ( $(document).height() > $(window).height() ) {
+				h.addClass('ndbox-margin');
+				$('*').filter(function() {
+					return ( $(this).css('position') === 'fixed' && ! $(this).hasClass('ndbox-over') );
+				}).addClass('ndbox-margin');
+			}
+				
+			tpl += '<div class="' + overClass + '" id="ndbox-over-' + ndbox_id + '">';
+				tpl += '<div class="ndbox-wrap ' + opt.selfClass + '" id="ndbox-wrap-' + ndbox_id + '" style="' + style.join(';') + '">';
+					tpl += '<button class="ndbox-close ndbox-clickclose"></button>';
+					tpl += '<div class="ndbox-inner" id="ndbox-' + ndbox_id + '" style="padding:' + opt.padding + 'px">' + data + '</div>';
+				tpl += '</div>';
+			tpl += '</div>';
+			
+			$(tpl).appendTo(b).fadeIn(200);
+			h.removeClass('ndbox-loading');
+			
+			this.centered(ndbox_id);
+			
+			ndbox_opened = true;
+			return ndbox_id;
+		},
+		close: function(el) {
+			var h = $('html');
+				
+			ndbox_id = ndbox_arr.pop();
+			
+			$('#ndbox-over-' + ndbox_id).fadeOut(200, function() {
+				if ( ndbox_arr.length == 0 ) {
+					h.removeClass('ndbox-lock');
+					if ( $(document).height() > $(window).height() ) {
+						$('.ndbox-margin').removeClass('ndbox-margin');
+					}
+					ndbox_id = null;
+					ndbox_opened = false;
+				}
+				$(this).remove();
+			});
+		},
+		closeAll: function() {
+			var h = $('html');
+			if ( ndbox_arr.length > 0 ) {
+				ndbox_arr = [];
+				ndbox_id = null;
+				ndbox_opened = false;
+				
+				$('.ndbox-over').remove();
+				h.removeClass('ndbox-lock ndbox-margin');
+			}
+		}
+	}
+	
+	$(document)
+		.ready(function() {
+			var w1, w2, html = $('html');
+				
+			// get real width of page scroll-bar
+			w1 = $(window).width();
+			html.addClass('ndbox-lock-test');
+			w2 = $(window).width();
+			html.removeClass('ndbox-lock-test');
+
+			$('<style>.ndbox-margin {margin-right:' + (w2 - w1) + 'px;}</style>').appendTo('head');
+		})
+		.on('click', '.ndbox-wrap', function(e) { e.stopPropagation(); })
+		.on('click', '.ndbox-clickclose', function(e) { $.ndbox.close(this); });
+	
+	$(window).resize(function() {
+		if ( ndbox_opened ) {
+			$.each(ndbox_arr, function(k, v) {
+				$.ndbox.centered(v);
+			});
+		}
+	});
+	
+})(jQuery, window, document);
