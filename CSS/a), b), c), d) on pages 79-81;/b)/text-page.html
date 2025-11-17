@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Буквица с псевдоклассом first-letter</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=UnifrakturMaguntia&display=swap');
+        
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 40px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 15px;
+        }
+        
+        /* Основной стиль буквицы */
+        .drop-cap {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2em;
+            line-height: 1.8;
+            text-align: justify;
+            color: #2c3e50;
+        }
+        
+        .drop-cap::first-letter {
+            font-family: 'UnifrakturMaguntia', cursive;
+            font-size: 4.5em;
+            font-weight: bold;
+            color: #e74c3c;
+            float: left;
+            line-height: 0.8;
+            margin: 0.1em 0.15em 0 0;
+            padding: 0.1em 0.2em;
+            background: linear-gradient(135deg, #fef9e7 0%, #fdebd0 100%);
+            border: 3px double #e74c3c;
+            border-radius: 8px 0 8px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 3px 3px 8px rgba(0,0,0,0.2);
+        }
+        
+        /* Альтернативный стиль буквицы */
+        .modern-cap {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1em;
+            line-height: 1.7;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px dashed #bdc3c7;
+        }
+        
+        .modern-cap::first-letter {
+            font-family: 'Playfair Display', serif;
+            font-size: 5em;
+            font-weight: 700;
+            color: #3498db;
+            float: left;
+            line-height: 0.8;
+            margin: 0.15em 0.15em 0.1em 0;
+            padding: 0.2em;
+            background: #ecf0f1;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+            border: 2px solid #3498db;
+        }
+        
+        /* Стиль в средневековом стиле */
+        .medieval-cap {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3em;
+            line-height: 1.8;
+            margin-top: 40px;
+            padding: 30px;
+            background: #fef9e7;
+            border: 1px solid #fdebd0;
+            border-radius: 5px;
+            position: relative;
+        }
+        
+        .medieval-cap::first-letter {
+            font-family: 'UnifrakturMaguntia', cursive;
+            font-size: 5em;
+            color: #8b4513;
+            float: left;
+            line-height: 0.7;
+            margin: 0.2em 0.15em 0.1em 0;
+            padding: 0.2em;
+            background: linear-gradient(135deg, #fef9e7 0%, #e6d3b3 100%);
+            border: 2px solid #8b4513;
+            border-radius: 5px;
+            text-shadow: 1px 1px 2px rgba(139, 69, 19, 0.3);
+        }
+        
+        /* Градиентный стиль */
+        .gradient-cap {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2em;
+            line-height: 1.7;
+            margin-top: 40px;
+            padding: 25px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 10px;
+        }
+        
+        .gradient-cap::first-letter {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5em;
+            font-weight: 700;
+            color: #f1c40f;
+            float: left;
+            line-height: 0.8;
+            margin: 0.1em 0.15em 0.1em 0;
+            padding: 0.15em;
+            background: rgba(255,255,255,0.1);
+            border-radius: 5px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            border: 1px solid rgba(241, 196, 15, 0.5);
+        }
+        
+        .style-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4em;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .note {
+            background: #e8f4f8;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #2c3e50;
+            border-left: 4px solid #3498db;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Искусство буквицы</h1>
+        
+        <h3 class="style-title">Классическая буквица</h3>
+        <p class="drop-cap">
+            В старинных книгах и рукописях буквицы играли особую роль, придавая тексту неповторимый шарм и элегантность. Эти украшенные заглавные буквы, часто богато орнаментированные, служили не только для обозначения начала нового раздела, но и являлись настоящими произведениями искусства. Мастера каллиграфии посвящали hours созданию сложных узоров, вплетая в буквицы растительные мотивы, геометрические patterns и даже миниатюрные сцены из жизни.
+        </p>
+        
+        <h3 class="style-title">Современная интерпретация</h3>
+        <p class="modern-cap">
+            Дизайнеры нашего времени переосмыслили традицию, создавая буквицы, которые гармонично сочетаются с современной типографикой. Используя чистые линии, минималистичные формы и contemporary цветовые палитры, они доказывают, что древнее искусство может быть актуальным и сегодня. Digital буквицы открывают новые возможности для творчества, позволяя экспериментировать с анимацией и интерактивностью.
+        </p>
+        
+        <h3 class="style-title">Средневековый стиль</h3>
+        <p class="medieval-cap">
+            Монахи в скрипториях средневековых монастырей создавали illuminated manuscripts, где каждая буквица превращалась в маленький шедевр. Используя сусальное золото, яркие минеральные pigments и сложные орнаменты, они превращали священные тексты в драгоценности. Эти рукописи сохранились до наших дней, поражая своим великолепием и свидетельствуя о невероятном мастерстве древних художников.
+        </p>
+        
+        <h3 class="style-title">Градиентный подход</h3>
+        <p class="gradient-cap">
+            Эпоха цифровых технологий принесла с собой новые техники оформления текста. Градиенты, тени, прозрачность и сложные цветовые переходы позволяют создавать буквицы, которые буквально оживают на странице. Web-дизайнеры используют CSS и SVG для реализации сложных визуальных эффектов, делая каждую букву уникальным элементом дизайна, привлекающим внимание читателя.
+        </p>
+        
+        <div class="note">
+            <strong>Примечание:</strong> Все буквицы созданы с помощью CSS псевдокласса <code>::first-letter</code> с использованием различных шрифтов, размеров, цветов и стилей оформления. Каждый пример демонстрирует разные подходы к типографике и веб-дизайну.
+        </div>
+    </div>
+</body>
+</html>
