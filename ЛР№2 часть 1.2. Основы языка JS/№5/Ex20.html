@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Три слоя с движущейся картинкой</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            background: #f0f0f0;
+        }
+
+        /* Задний слой (нижний z-index) */
+        .back-layer {
+            position: absolute;
+            width: 80%;
+            height: 300px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        /* Средний слой - движущаяся картинка */
+        .moving-image {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: -200px;
+            width: 150px;
+            height: 150px;
+            z-index: 2;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            transition: left 0.05s linear;
+        }
+
+        /* Передний слой (верхний z-index) */
+        .front-layer {
+            position: absolute;
+            width: 60%;
+            height: 200px;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        /* Панель управления */
+        .controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 100;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            background: #667eea;
+            color: white;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #764ba2;
+        }
+
+        .info {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 100;
+            max-width: 300px;
+        }
+
+        .z-index-display {
+            margin-top: 10px;
+            font-size: 12px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <!-- Задний слой (z-index: 1) -->
+    <div class="back-layer">
+        Задний слой (z-index: 1)
+        <div class="z-index-display">Картинка перекрывает этот слой</div>
+    </div>
+
+    <!-- Средний слой - движущаяся картинка (z-index: 2) -->
+    <img id="movingImage" 
+         class="moving-image" 
+         src="https://i.pinimg.com/736x/af/aa/80/afaa808ce834024c6b13de2569d66b31.jpg" 
+         alt="Движущаяся картинка">
+
+    <!-- Передний слой (z-index: 3) -->
+    <div class="front-layer">
+        Передний слой (z-index: 3)
+        <div class="z-index-display">Этот слой перекрывает картинку</div>
+    </div>
+
+    <!-- Панель управления -->
+    <div class="controls">
+        <h3>Управление анимацией</h3>
+        <button onclick="startAnimation()">▶ Старт</button>
+        <button onclick="stopAnimation()">⏸ Стоп</button>
+        <button onclick="resetAnimation()">↻ Сброс</button>
+        <button onclick="toggleSpeed()">⚡ Скорость</button>
+    </div>
+
+    <!-- Информационная панель -->
+    <div class="info">
+        <h4>Иерархия слоев:</h4>
+        <p>1. <strong>Передний слой</strong> (z-index: 3) - перекрывает всё</p>
+        <p>2. <strong>Картинка</strong> (z-index: 2) - движется между слоями</p>
+        <p>3. <strong>Задний слой</strong> (z-index: 1) - перекрывается картинкой</p>
+    </div>
+
+    <script>
+        let animationId = null;
+        let isAnimating = false;
+        let speed = 3;
+        let direction = 1; // 1 - вправо, -1 - влево
+
+        function startAnimation() {
+            if (isAnimating) return;
+            
+            const image = document.getElementById('movingImage');
+            const screenWidth = window.innerWidth;
+            isAnimating = true;
+
+            function animate() {
+                let currentLeft = parseInt(image.style.left) || -200;
+                
+                // Движение вправо
+                if (direction === 1) {
+                    if (currentLeft < screenWidth + 200) {
+                        currentLeft += speed;
+                        image.style.left = currentLeft + 'px';
+                        animationId = requestAnimationFrame(animate);
+                    } else {
+                        // Достигли правого края - начинаем заново слева
+                        image.style.left = '-200px';
+                        animationId = requestAnimationFrame(animate);
+                    }
+                } 
+                // Движение влево
+                else {
+                    if (currentLeft > -200) {
+                        currentLeft -= speed;
+                        image.style.left = currentLeft + 'px';
+                        animationId = requestAnimationFrame(animate);
+                    } else {
+                        // Достигли левого края - начинаем заново справа
+                        image.style.left = screenWidth + 'px';
+                        animationId = requestAnimationFrame(animate);
+                    }
+                }
+            }
+
+            animationId = requestAnimationFrame(animate);
+        }
+
+        function stopAnimation() {
+            if (animationId) {
+                cancelAnimationFrame(animationId);
+                isAnimating = false;
+            }
+        }
+
+        function resetAnimation() {
+            stopAnimation();
+            const image = document.getElementById('movingImage');
+            image.style.left = '-200px';
+            direction = 1;
+            speed = 3;
+        }
+
+        function toggleSpeed() {
+            speed = speed === 3 ? 6 : 3;
+        }
+
+        // Автозапуск анимации при загрузке
+        window.onload = function() {
+            startAnimation();
+            
+            // Добавляем возможность менять направление по клику
+            document.getElementById('movingImage').addEventListener('click', function() {
+                direction *= -1;
+            });
+        };
+
+        // Останавливаем анимацию при закрытии страницы
+        window.addEventListener('beforeunload', function() {
+            stopAnimation();
+        });
+    </script>
+</body>
+</html>

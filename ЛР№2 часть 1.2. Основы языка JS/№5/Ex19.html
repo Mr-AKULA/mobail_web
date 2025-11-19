@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Движение по диагонали</title>
+    <style>
+        #anim {
+            position: absolute;
+            font-size: 20px;
+            font-weight: bold;
+            color: #ff9ff3;
+            padding: 15px;
+            background: #f368e0;
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .center-mark {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: red;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+    <script>
+        function moveTxt() {
+            var element = document.getElementById('anim');
+            var screenWidth = window.innerWidth;
+            var screenHeight = window.innerHeight;
+            
+            // Начальная позиция - правый верхний угол
+            var startLeft = screenWidth - 200;
+            var startTop = 10;
+            
+            // Конечная позиция - центр экрана
+            var endLeft = screenWidth / 2 - 100;
+            var endTop = screenHeight / 2 - 25;
+            
+            element.style.left = startLeft + 'px';
+            element.style.top = startTop + 'px';
+            
+            function animate() {
+                var currentLeft = parseInt(element.style.left);
+                var currentTop = parseInt(element.style.top);
+                
+                // Двигаемся к центру
+                if (currentLeft > endLeft) {
+                    currentLeft -= 2;
+                }
+                if (currentTop < endTop) {
+                    currentTop += 2;
+                }
+                
+                element.style.left = currentLeft + 'px';
+                element.style.top = currentTop + 'px';
+                
+                // Продолжаем анимацию пока не достигнем цели
+                if (currentLeft > endLeft || currentTop < endTop) {
+                    setTimeout(animate, 20);
+                }
+            }
+            
+            animate();
+        }
+        
+        window.onload = moveTxt;
+    </script>
+</head>
+<body>
+    <div id="anim">Движение к центру!</div>
+    <div class="center-mark" title="Центр экрана"></div>
+    
+    <div style="position: fixed; bottom: 20px; left: 20px; background: white; padding: 10px; border-radius: 5px;">
+        <p>Текст начинает движение из правого верхнего угла</p>
+        <p>и движется по диагонали к центру экрана</p>
+    </div>
+</body>
+</html>

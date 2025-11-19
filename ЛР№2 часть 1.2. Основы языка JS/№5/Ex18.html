@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Плавная анимация текста</title>
+    <style>
+        #anil {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff6b6b;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            transition: all 0.1s ease;
+        }
+    </style>
+    <script>
+        function moveTxt() {
+            var element = document.getElementById('anil');
+            var currentTop = parseInt(element.style.top) || 10;
+            
+            if (currentTop < 500) {
+                currentTop += 2; // Меньший шаг для плавности
+                element.style.top = currentTop + 'px';
+                setTimeout(moveTxt, 50); // Более частая частота обновления
+            }
+        }
+        
+        // Запуск анимации при загрузке страницы
+        window.onload = moveTxt;
+    </script>
+</head>
+<body>
+    <div id="anil" style="position:absolute; left:10px; top:10px;">
+        Текст, шагом марш вниз!
+    </div>
+    
+    <div style="position: absolute; top: 510px; left: 10px; color: #666;">
+        <p>Текст движется плавно сверху вниз</p>
+    </div>
+</body>
+</html>
