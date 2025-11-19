@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Открытие нового окна</title>
+    <script>
+        function openHelpWindow() {
+            window.open(
+                "https://www.google.com",
+                "helpWindow",
+                "toolbar=no,scrollbars=yes,width=500,height=500,resizable=yes,top=100,left=500"
+            );
+        }
+    </script>
+</head>
+<body>
+    <h1>Создание нового окна</h1>
+    <hr>
+    <p>
+        <a href="javascript:void(0);" onclick="openHelpWindow()">
+            Щелкните на ссылке для получения справочной информации
+        </a>
+    </p>
+</body>
+</html>

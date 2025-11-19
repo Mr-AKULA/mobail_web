@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Обработка событий ссылок</title>
+    <script>
+        function confirmDownload() {
+            return confirm("Для загрузки документа требуется программа Acrobat Reader. Продолжить загрузку?");
+        }
+        
+        function changeBackground() {
+            document.body.style.backgroundColor = "red";
+        }
+        
+        function restoreBackground() {
+            document.body.style.backgroundColor = "white";
+        }
+    </script>
+</head>
+<body>
+    <h1>Примеры обработки событий для ссылок</h1>
+    
+    <p>
+        <a href="https://get.adobe.com/ru/reader/download?os=Windows+10&name=Reader+2025.001.20693+Russian+for+Windows+%28Recommended%29&lang=ru&nativeOs=Windows+10&accepted=&declined=&preInstalled=&site=landing" onclick="return confirmDownload()">
+            Скачать PDF документ
+        </a>
+    </p>
+    
+    <p>
+        <a href="javascript:void(0);" 
+           onmouseover="changeBackground()" 
+           onmouseout="restoreBackground()">
+            Наведите на меня мышь для изменения цвета фона
+        </a>
+    </p>
+</body>
+</html>

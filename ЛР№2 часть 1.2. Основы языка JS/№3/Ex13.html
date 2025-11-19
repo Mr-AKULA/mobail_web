@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Изменение изображения</title>
+    <style>
+        #myImage {
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        function enlargeImage() {
+            document.getElementById('myImage').style.transform = 'scale(1.5)';
+        }
+        
+        function shrinkImage() {
+            document.getElementById('myImage').style.transform = 'scale(1)';
+        }
+    </script>
+</head>
+<body>
+    <h1>Изменение размера изображения</h1>
+    <p>Наведите курсор мыши на изображение для увеличения</p>
+    
+    <img id="myImage" 
+         src="https://avatars.mds.yandex.net/i?id=64957bbbbbe3009575227087b8dec1698919cccd-10878212-images-thumbs&n=13" 
+         alt="Пример изображения"
+         onmouseover="enlargeImage()" 
+         onmouseout="shrinkImage()"
+         width="200" 
+         height="150">
+</body>
+</html>
