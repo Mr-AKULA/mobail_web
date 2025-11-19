@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Абсолютное позиционирование</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            height: 2000px; /* Добавляем высоту для демонстрации прокрутки */
+            position: relative;
+        }
+        
+        .image-container {
+            position: absolute;
+            top: 500px;    /* Смещение вниз на 500px */
+            left: 500px;   /* Смещение влево на 500px */
+            border: 2px solid #333;
+            padding: 10px;
+            background-color: #f9f9f9;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .image-container img {
+            display: block;
+            max-width: 300px;
+            height: auto;
+        }
+        
+        .controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+    </style>
+    <script>
+        function moveImage() {
+            var container = document.getElementById('imageContainer');
+            var topPos = document.getElementById('topPosition').value;
+            var leftPos = document.getElementById('leftPosition').value;
+            
+            container.style.top = topPos + 'px';
+            container.style.left = leftPos + 'px';
+        }
+        
+        function resetPosition() {
+            var container = document.getElementById('imageContainer');
+            container.style.top = '500px';
+            container.style.left = '500px';
+            
+            document.getElementById('topPosition').value = '500';
+            document.getElementById('leftPosition').value = '500';
+        }
+    </script>
+</head>
+<body>
+    <h1>Абсолютное позиционирование изображения</h1>
+    <p>Изображение позиционировано абсолютно со смещением 500px вниз и 500px влево.</p>
+    
+    <div class="image-container" id="imageContainer">
+        <img src="https://i.pinimg.com/736x/4d/6f/64/4d6f64d03adfd8c97f409293ef75e4a5.jpg" 
+             alt="Пример изображения с абсолютным позиционированием">
+        <p>Этот контейнер имеет абсолютное позиционирование</p>
+    </div>
+    
+    <div class="controls">
+        <h3>Управление позицией</h3>
+        <label for="topPosition">Сверху (px):</label>
+        <input type="number" id="topPosition" value="500" min="0" max="1000"><br><br>
+        
+        <label for="leftPosition">Слева (px):</label>
+        <input type="number" id="leftPosition" value="500" min="0" max="1000"><br><br>
+        
+        <button onclick="moveImage()">Переместить</button>
+        <button onclick="resetPosition()">Сбросить</button>
+    </div>
+    
+    <div style="margin-top: 600px;">
+        <p><strong>Особенности абсолютного позиционирования:</strong></p>
+        <ul>
+            <li>Элемент удаляется из нормального потока документа</li>
+            <li>Позиционируется относительно ближайшего позиционированного предка</li>
+            <li>Не занимает места в макете страницы</li>
+            <li>Может перекрывать другие элементы</li>
+        </ul>
+    </div>
+</body>
+</html>

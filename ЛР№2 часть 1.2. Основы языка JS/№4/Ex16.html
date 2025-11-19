@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Декорации текста</title>
+    <script>
+        function addUnderline() {
+            document.getElementById('head').style.textDecoration = "underline";
+        }
+        
+        function removeUnderline() {
+            document.getElementById('head').style.textDecoration = "none";
+        }
+        
+        function addOverline() {
+            document.getElementById('head').style.textDecoration = "overline";
+        }
+        
+        function addLineThrough() {
+            document.getElementById('head').style.textDecoration = "line-through";
+        }
+        
+        function resetDecoration() {
+            document.getElementById('head').style.textDecoration = "none";
+        }
+    </script>
+</head>
+<body>
+    <h1 id="head" 
+        onmouseover="addUnderline()" 
+        onmouseout="removeUnderline()"
+        onclick="addOverline()"
+        ondblclick="addLineThrough()">
+        Добро пожаловать на нашу страницу!
+    </h1>
+    
+    <p>Наведите мышь - подчеркивание</p>
+    <p>Одинарный клик - надчеркивание</p>
+    <p>Двойной клик - зачеркивание</p>
+    
+    <button onclick="resetDecoration()">Сбросить оформление</button>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Изменение цвета заголовка</title>
+    <style>
+        .red-text {
+            color: red;
+        }
+        .normal-text {
+            color: black;
+        }
+    </style>
+    <script>
+        function changeColorRed() {
+            var head = document.getElementById('head');
+            head.classList.remove('normal-text');
+            head.classList.add('red-text');
+        }
+        
+        function changeColorBlack() {
+            var head = document.getElementById('head');
+            head.classList.remove('red-text');
+            head.classList.add('normal-text');
+        }
+    </script>
+</head>
+<body>
+    <h1 id="head" 
+        class="normal-text"
+        onmouseover="changeColorRed()" 
+        onmouseout="changeColorBlack()">
+        Добро пожаловать на нашу страницу!
+    </h1>
+</body>
+</html>
