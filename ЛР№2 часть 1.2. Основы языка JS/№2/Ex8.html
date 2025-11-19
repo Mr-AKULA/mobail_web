@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Определение браузера</title>
+</head>
+<body>
+    <script>
+        var browserName = navigator.appName;
+        
+        if (browserName === "Microsoft Internet Explorer") {
+            alert("Определен Internet Explorer. Перенаправляем на Ex1.html");
+            window.location.href = "Ex1.html";
+        } else {
+            alert("Определен другой браузер: " + browserName + ". Перенаправляем на Ex3.html");
+            window.location.href = "Ex3.html";
+        }
+    </script>
+</body>
+</html>
