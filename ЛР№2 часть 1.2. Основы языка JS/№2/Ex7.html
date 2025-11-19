@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Школьные предметы</title>
+    <script>
+        function displaySubjects() {
+            var subjects = ["Математика", "Физика", "Химия", "Информатика", 
+                           "История", "Литература", "Русский язык", "Обществознание", 
+                           "Биология", "География", "Английский язык"];
+            
+            // Точные науки (первые 4 предмета)
+            var exactSciences = subjects.slice(0, 4);
+            
+            // Гуманитарные науки (предметы с 4 по 7 индекс)
+            var humanities = subjects.slice(4, 8);
+            
+            document.write("<h2>Точные науки:</h2>");
+            document.write("<p>" + exactSciences.join(", ") + "</p>");
+            
+            document.write("<h2>Гуманитарные науки:</h2>");
+            document.write("<p>" + humanities.join(", ") + "</p>");
+        }
+    </script>
+</head>
+<body>
+    <h1>Классификация школьных предметов</h1>
+    <script>
+        displaySubjects();
+    </script>
+</body>
+</html>
