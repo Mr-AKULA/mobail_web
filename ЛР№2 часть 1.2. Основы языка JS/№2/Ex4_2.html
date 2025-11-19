@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Проверка пароля</title>
+</head>
+<body>
+    <script>
+        var correctPassword = "12345"; // Верный пароль
+        var userPassword = prompt("Введите пароль:", "");
+        
+        if (userPassword === correctPassword) {
+            document.write("<p style='color: green;'>Пароль верен! Доступ разрешен.</p>");
+        } else {
+            document.write("<p style='color: red;'>Неверный пароль! Доступ запрещен.</p>");
+        }
+    </script>
+</body>
+</html>
