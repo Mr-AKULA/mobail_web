@@ -1,6 +1,6 @@
 Вы абсолютно правы! Давайте упростим и обойдемся без PHP на данном этапе. Вместо этого мы можем:
 
-GIF -[ https://disk.yandex.ru/i/nvk954gVcM3T7A](https://s1079sas.storage.yandex.net/rdisk/b7b5174d48902710b0c24f0c967333024e5e0afd3b423b7dc3f991330ca37a34/692e2883/7hPTiUuSK6hfp8wXOgqFr2XGJ5807qkVvw8hDUtl9IY2j--seKpKYqNkmBoKRE8pa5y9vRswJpzzvi5H8sycPQ==?uid=0&filename=GIF.gif&disposition=inline&hash=&limit=0&content_type=image%2Fgif&owner_uid=0&fsize=127354508&hid=cfb136cd9cd976b4d863686b2b4af747&media_type=image&tknv=v3&etag=ecee3e95d8094f38aed7e6259ade39f5&ts=644ec91a8e6c0&s=e1724f2ad2b1381d9dd991567e13c77b5c76a33c4ee53b533d66302cddfd3b69&pb=U2FsdGVkX19E-rZHz1-u3Fy2fkVG4JzTGuaRIwnQk8EyiZGrlpU6yyc90uwm1rfg8LLBDSBWUi5bPyhw8UHMgjEbhFyxR58dmyPLW7z9cN4)
+https://s1079sas.storage.yandex.net/rdisk/c3b45c49576ec7e2b8bc8b247dde7bb66a701a20e0c8cdf4a14675f62bc136e7/692e28be/7hPTiUuSK6hfp8wXOgqFr2XGJ5807qkVvw8hDUtl9IY2j--seKpKYqNkmBoKRE8pa5y9vRswJpzzvi5H8sycPQ==?uid=1951124744&filename=GIF.gif&disposition=inline&hash=&limit=0&content_type=image%2Fgif&owner_uid=1951124744&fsize=127354508&hid=cfb136cd9cd976b4d863686b2b4af747&media_type=image&tknv=v3&etag=ecee3e95d8094f38aed7e6259ade39f5&ts=644ec952d2b80&s=efa441f71d3e365ebadcc7eb915157a737435d1062b5352b5586d31103378108&pb=U2FsdGVkX19R18KM0dBmopNoWDmzOXdXd1Z7f2957EplxWZnRghW2L1ciao6gvhU1GtlO9gyL5CpP7UUIuYxtua7x0rk431QCmKqWKewqCI
 
 
 1. **Эмулировать сохранение** с помощью localStorage (данные будут сохраняться в браузере пользователя)
