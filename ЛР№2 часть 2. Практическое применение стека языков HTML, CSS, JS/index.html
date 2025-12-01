@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Персональный сайт</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="site-title">Алексеев Павел</h1>
+                <p class="site-subtitle">Веб-разработчик & Дизайнер</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Навигационное меню -->
+    <nav class="main-nav">
+        <div class="container">
+            <button class="menu-toggle" id="menuToggle" aria-label="Открыть меню">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-list" id="navList">
+                <li><a href="index.html" class="active"><i class="fas fa-home"></i> Главная</a></li>
+                <li><a href="resume.html"><i class="fas fa-file-alt"></i> Резюме</a></li>
+                <li><a href="hobbies.html"><i class="fas fa-heart"></i> Хобби</a></li>
+                <li><a href="photos.html"><i class="fas fa-camera"></i> Фотографии</a></li>
+                <li><a href="guestbook.html"><i class="fas fa-book"></i> Обращения</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> Контакты</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Основной контент -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Приветственная секция -->
+            <section class="welcome-section animate-on-scroll">
+                <h2 class="section-title">Добро пожаловать на мой сайт!</h2>
+                <div class="profile-card">
+                    <div class="profile-image">
+                        <img src="images/profile.jpg" alt="Алексеев Павел" class="profile-img">
+                    </div>
+                    <div class="profile-info">
+                        <h3>Привет, я Павел </h3>
+                        <p>Я начинающий веб-разработчик с нуля к созданию красивых и функциональных сайтов. Этот сайт — мое цифровое портфолио, где я делюсь своими проектами, навыками и увлечениями.</p>
+                        <p>В настоящее время изучаю современные технологии веб-разработки и постоянно совершенствую свои навыки.</p>
+                        <a href="resume.html" class="btn">Узнать больше обо мне</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Блок новостей -->
+            <section class="news-section animate-on-scroll">
+                <h2 class="section-title"><i class="fas fa-newspaper"></i> Последние новости</h2>
+                <div class="news-container" id="newsContainer">
+                    <!-- Новости будут загружены через JS -->
+                    <div class="loading">
+                        <div class="spinner"></div>
+                        <p>Загрузка новостей...</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Быстрые ссылки -->
+            <section class="quick-links animate-on-scroll">
+                <h2 class="section-title">Исследуйте сайт</h2>
+                <div class="links-grid">
+                    <a href="resume.html" class="link-card">
+                        <div class="card-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h3>Мое резюме</h3>
+                        <p>Профессиональные навыки, образование и опыт работы</p>
+                        <span class="card-arrow"><i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    
+                    <a href="hobbies.html" class="link-card">
+                        <div class="card-icon">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <h3>Мои увлечения</h3>
+                        <p>Хобби, интересы и увлечения вне работы</p>
+                        <span class="card-arrow"><i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    
+                    <a href="photos.html" class="link-card">
+                        <div class="card-icon">
+                            <i class="fas fa-images"></i>
+                        </div>
+                        <h3>Фотогалерея</h3>
+                        <p>Личные фотографии и моменты из жизни</p>
+                        <span class="card-arrow"><i class="fas fa-arrow-right"></i></span>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Подвал сайта -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <!-- <h3>Алексеев Павел</h3> -->
+                    <p>Персональный сайт-портфолио, созданный с использованием HTML, CSS и JavaScript</p>
+                    <div class="social-links">
+                        <a href="https://vk.com/akulaisboy" target="_blank" rel="noopener noreferrer" aria-label="ВКонтакте">
+                            <img src="images/ui/vk.svg" alt="VK" class="social-icon" width="24" height="24">
+                        </a>
+                        <a href="https://github.com/Mr-AKULA" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                            <img src="images/ui/GitHub.svg" alt="GitHub" class="social-icon" width="24" height="24">
+                        </a>
+                        <a href="https://t.me/MRAKUL" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+                            <img src="images/ui/Telegram.svg" alt="Telegram" class="social-icon" width="24" height="24">
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Контактная информация</h3>
+                    <p><i class="fas fa-envelope"></i> xarizmatv36@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +7 (999) 813-45-60</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Йошкар-Ола, Россия</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Быстрые ссылки</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="contact.html">Контакты</a></li>
+                        <li><a href="guestbook.html">Оставить отзыв</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Персональный сайт. Все права защищены.</p>
+                <p class="footer-note">Сайт создан в рамках учебного проекта по веб-разработке</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Скрипты -->
+    <script src="js/main.js"></script>
+    <script src="js/news.js"></script>
+</button>
+</body>
+</html>

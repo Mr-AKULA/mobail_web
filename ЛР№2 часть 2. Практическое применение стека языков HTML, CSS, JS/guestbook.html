@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обращения</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/guestbook.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="site-title">Алексеев Павел</h1>
+                <p class="site-subtitle">Веб-разработчик & Дизайнер & Обращайтесь</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Навигационное меню -->
+    <nav class="main-nav">
+        <div class="container">
+            <button class="menu-toggle" id="menuToggle" aria-label="Открыть меню">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-list" id="navList">
+                <li><a href="index.html"><i class="fas fa-home"></i> Главная</a></li>
+                <li><a href="resume.html"><i class="fas fa-file-alt"></i> Резюме</a></li>
+                <li><a href="hobbies.html"><i class="fas fa-heart"></i> Хобби</a></li>
+                <li><a href="photos.html"><i class="fas fa-camera"></i> Фотографии</a></li>
+                <li><a href="guestbook.html" class="active"><i class="fas fa-book"></i> Обращения</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> Контакты</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Основной контент -->
+    <main class="main-content">
+        <div class="container">
+            <section class="guestbook-section">
+                <h2 class="section-title"><i class="fas fa-book"></i> Гостевая книга</h2>
+                <p class="section-description">Оставьте ваше сообщение, отзыв или предложение. Все сообщения сохраняются и отображаются ниже.</p>
+                
+                <!-- Форма для отправки сообщения -->
+                <div class="message-form-container animate-on-scroll">
+                    <h3 class="form-title">Оставить сообщение</h3>
+                    <form id="guestbookForm" class="message-form">
+                        <div class="form-group">
+                            <label for="guestName"><i class="fas fa-user"></i> Ваше имя *</label>
+                            <input type="text" id="guestName" name="name" required placeholder="Введите ваше имя">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="guestEmail"><i class="fas fa-envelope"></i> Email (необязательно)</label>
+                            <input type="email" id="guestEmail" name="email" placeholder="email@example.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="guestMessage"><i class="fas fa-comment"></i> Ваше сообщение *</label>
+                            <textarea id="guestMessage" name="message" required rows="5" placeholder="Напишите ваше сообщение здесь..."></textarea>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-submit">
+                                <i class="fas fa-paper-plane"></i> Отправить сообщение
+                            </button>
+                            <button type="button" class="btn btn-clear" id="clearFormBtn">
+                                <i class="fas fa-eraser"></i> Очистить форму
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Сообщения -->
+                <div class="messages-container">
+                    <h3 class="messages-title"><i class="fas fa-comments"></i> Сообщения гостей</h3>
+                    <div class="messages-actions">
+                        <button class="btn btn-sm" id="sortNewestBtn">
+                            <i class="fas fa-sort-amount-down"></i> Сначала новые
+                        </button>
+                        <button class="btn btn-sm" id="sortOldestBtn">
+                            <i class="fas fa-sort-amount-up"></i> Сначала старые
+                        </button>
+                        <button class="btn btn-sm" id="clearMessagesBtn">
+                            <i class="fas fa-trash"></i> Очистить все
+                        </button>
+                    </div>
+                    <div class="messages-list" id="guestbookMessages">
+                        <!-- Сообщения будут загружены через JS -->
+                    </div>
+                </div>
+                
+                <!-- Статистика -->
+                <div class="guestbook-stats animate-on-scroll">
+                    <h3 class="stats-title"><i class="fas fa-chart-bar"></i> Статистика гостевой книги</h3>
+                    <div class="stats-grid" id="guestbookStats">
+                        <!-- Статистика будет загружена через JS -->
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+
+    <!-- Подвал сайта -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <!-- <h3>Алексеев Павел</h3> -->
+                    <p>Персональный сайт-портфолио, созданный с использованием HTML, CSS и JavaScript и занимаюсь кодом</p>
+                    <div class="social-links">
+                        <a href="https://vk.com/akulaisboy" target="_blank" rel="noopener noreferrer" aria-label="ВКонтакте">
+                            <img src="images/ui/vk.svg" alt="VK" class="social-icon" width="24" height="24">
+                        </a>
+                        <a href="https://github.com/Mr-AKULA" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                            <img src="images/ui/GitHub.svg" alt="GitHub" class="social-icon" width="24" height="24">
+                        </a>
+                        <a href="https://t.me/MRAKUL" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+                            <img src="images/ui/Telegram.svg" alt="Telegram" class="social-icon" width="24" height="24">
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Контактная информация</h3>
+                    <p><i class="fas fa-envelope"></i> xarizmatv36@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +7 (999) 813-45-60</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Йошкар-Ола, Россия</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Быстрые ссылки</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="contact.html">Контакты</a></li>
+                        <li><a href="guestbook.html">Оставить отзыв</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Персональный сайт. Все права защищены.</p>
+                <p class="footer-note">Сайт создан в рамках учебного проекта по веб-разработке</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Скрипты -->
+    <script src="js/main.js"></script>
+    <script src="js/guestbook.js"></script>
+</body>
+</html>

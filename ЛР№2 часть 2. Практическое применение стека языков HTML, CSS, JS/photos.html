@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фотографии</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/photos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="site-title">Алексеев Павел</h1>
+                <p class="site-subtitle">Веб-разработчик & Дизайнер & Фоточник</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Навигационное меню -->
+    <nav class="main-nav">
+        <div class="container">
+            <button class="menu-toggle" id="menuToggle" aria-label="Открыть меню">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-list" id="navList">
+                <li><a href="index.html"><i class="fas fa-home"></i> Главная</a></li>
+                <li><a href="resume.html"><i class="fas fa-file-alt"></i> Резюме</a></li>
+                <li><a href="hobbies.html"><i class="fas fa-heart"></i> Хобби</a></li>
+                <li><a href="photos.html" class="active"><i class="fas fa-camera"></i> Фотографии</a></li>
+                <li><a href="guestbook.html"><i class="fas fa-book"></i> Обращения</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> Контакты</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Основной контент -->
+    <main class="main-content">
+        <div class="container">
+            <section class="photos-section">
+                <h2 class="section-title"><i class="fas fa-camera-retro"></i> Мои фотографии</h2>
+                <p class="section-description">Здесь собраны мои любимые фотографии из путешествий, встреч с друзьями и моментов вдохновения.</p>
+                
+                <!-- Слайд-шоу -->
+                <div class="slideshow-container" id="slideshowContainer">
+                    <div class="slide active">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Портрет на природе">
+                        <div class="slide-caption">
+                            <h3>На природе</h3>
+                            <p>Летний день в парке</p>
+                        </div>
+                    </div>
+                    
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Работа за компьютером">
+                        <div class="slide-caption">
+                            <h3>За работой</h3>
+                            <p>Мой рабочий стол с проектами</p>
+                        </div>
+                    </div>
+                    
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Путешествия">
+                        <div class="slide-caption">
+                            <h3>Путешествия</h3>
+                            <p>Горный поход прошлым летом</p>
+                        </div>
+                    </div>
+                    
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Встреча с друзьями">
+                        <div class="slide-caption">
+                            <h3>С друзьями</h3>
+                            <p>Встреча выпускников</p>
+                        </div>
+                    </div>
+                    
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Хобби - фотография">
+                        <div class="slide-caption">
+                            <h3>Фотография</h3>
+                            <p>Один из моих увлечений</p>
+                        </div>
+                    </div>
+                </div>
+                
+                В следующий раз как нибудь
+                <!-- Галерея фотографий
+                <div class="gallery-section">
+                    <h3 class="gallery-title">Фотогалерея</h3>
+                    <div class="photo-grid" id="photoGrid">
+                        Фотографии будут добавлены через JS
+                    </div>
+                </div> -->
+            </section>
+        </div>
+    </main>
+
+    <!-- Подвал сайта -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <!-- <h3>Алексеев Павел</h3> -->
+                    <p>Персональный сайт-портфолио, созданный с использованием HTML, CSS и JavaScript и занимаюсь кодом</p>
+                    <div class="social-links">
+                        <a href="https://vk.com/akulaisboy" target="_blank" rel="noopener noreferrer" aria-label="ВКонтакте">
+                            <img src="images/ui/vk.svg" alt="VK" class="social-icon" width="24" height="24">
+                        </a>
+                        <a href="https://github.com/Mr-AKULA" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                            <img src="images/ui/GitHub.svg" alt="GitHub" class="social-icon" width="24" height="24">
+                        </a>
+                        <a href="https://t.me/MRAKUL" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+                            <img src="images/ui/Telegram.svg" alt="Telegram" class="social-icon" width="24" height="24">
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Контактная информация</h3>
+                    <p><i class="fas fa-envelope"></i> xarizmatv36@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +7 (999) 813-45-60</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Йошкар-Ола, Россия</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Быстрые ссылки</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="contact.html">Контакты</a></li>
+                        <li><a href="guestbook.html">Оставить отзыв</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Персональный сайт. Все права защищены.</p>
+                <p class="footer-note">Сайт создан в рамках учебного проекта по веб-разработке</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Модальное окно для просмотра фото -->
+    <div class="modal" id="photoModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose" aria-label="Закрыть">
+                <i class="fas fa-times"></i>
+            </button>
+            <img class="modal-image" id="modalImage" alt="">
+            <div class="modal-caption" id="modalCaption"></div>
+            <button class="modal-nav modal-prev" id="modalPrev" aria-label="Предыдущее фото">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="modal-nav modal-next" id="modalNext" aria-label="Следующее фото">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Скрипты -->
+    <script src="js/main.js"></script>
+    <script src="js/slideshow.js"></script>
+    <script src="js/photos.js"></script>
+</body>
+</html>

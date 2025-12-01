@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Резюме</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="site-title">Алексеев Павел</h1>
+                <p class="site-subtitle">Веб-разработчик & Дизайнер & Программист</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Навигационное меню -->
+    <nav class="main-nav">
+        <div class="container">
+            <button class="menu-toggle" id="menuToggle" aria-label="Открыть меню">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-list" id="navList">
+                <li><a href="index.html"><i class="fas fa-home"></i> Главная</a></li>
+                <li><a href="resume.html" class="active"><i class="fas fa-file-alt"></i> Резюме</a></li>
+                <li><a href="hobbies.html"><i class="fas fa-heart"></i> Хобби</a></li>
+                <li><a href="photos.html"><i class="fas fa-camera"></i> Фотографии</a></li>
+                <li><a href="guestbook.html"><i class="fas fa-book"></i> Обращения</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> Контакты</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Основной контент -->
+    <main class="main-content">
+        <div class="container">
+            <section class="resume-section">
+                <h2 class="section-title"><i class="fas fa-user-tie"></i> Мое резюме</h2>
+                
+                <div class="resume-container">
+                    <!-- Блок "О себе" -->
+                    <div class="resume-block animate-on-scroll">
+                        <h3 class="block-title"><i class="fas fa-user"></i> О себе</h3>
+                        <div class="block-content">
+                            <p>Системный администратор по образованию, начинающий веб-разработчик с интересом к созданию современных сайтов и приложений. Имею 4-летний опыт работы с Python, создаю полезные инструменты для автоматизации рутины.</p>
+                            <p>Активно изучаю веб-технологии, создаю дизайны в Figma, интересуюсь играми на WebGL и разработкой на C#. Стремлюсь к постоянному развитию и поиску интересных проектов.</p>
+                            <p>Имею водительские права категории C, опыт вождения более 200 км.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Блок "Образование" -->
+                    <div class="resume-block animate-on-scroll">
+                        <h3 class="block-title"><i class="fas fa-graduation-cap"></i> Образование</h3>
+                        <div class="block-content">
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-content">
+                                        <h4>Колледж - Системный администратор</h4>
+                                        <p class="timeline-subtitle">Специализация: компьютерные сети и системное администрирование</p>
+                                        <p>Получил базовые знания в IT-инфраструктуре, сетях и обслуживании компьютеров</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-content">
+                                        <h4>Университет</h4>
+                                        <p class="timeline-subtitle">Студент 3 курса</p>
+                                        <p>Продолжаю IT-образование, углубляю знания в программировании и веб-технологиях</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Блок "Навыки" -->
+                    <div class="resume-block animate-on-scroll">
+                        <h3 class="block-title"><i class="fas fa-code"></i> Профессиональные навыки</h3>
+                        <div class="block-content">
+                            <div class="skills-grid">
+                                <div class="skill-category">
+                                    <h4>Основные технологии</h4>
+                                    <ul class="skill-list">
+                                        <li>
+                                            <span class="skill-name">Python (4 года опыта)</span>
+                                            <div class="skill-bar">
+                                                <div class="skill-level" style="width: 90%"></div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <span class="skill-name">HTML/CSS</span>
+                                            <div class="skill-bar">
+                                                <div class="skill-level" style="width: 85%"></div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <span class="skill-name">JavaScript</span>
+                                            <div class="skill-bar">
+                                                <div class="skill-level" style="width: 70%"></div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <span class="skill-name">C# (изучаю)</span>
+                                            <div class="skill-bar">
+                                                <div class="skill-level" style="width: 50%"></div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="skill-category">
+                                    <h4>Дополнительные навыки</h4>
+                                    <ul class="skill-list">
+                                        <li>
+                                            <span class="skill-name">Figma (дизайн)</span>
+                                            <div class="skill-bar">
+                                                <div class="skill-level" style="width: 80%"></div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <span class="skill-name">DevOps</span>
+                                            <div class="skill-bar">
+                                                <div class="skill-level" style="width: 75%"></div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <span class="skill-name">ИИ/ML (YOLO)</span>
+                                            <div class="skill-bar">
+                                                <div class="skill-level" style="width: 70%"></div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <span class="skill-name">Системное администрирование</span>
+                                            <div class="skill-bar">
+                                                <div class="skill-level" style="width: 85%"></div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Блок "Опыт работы" -->
+                    <div class="resume-block animate-on-scroll">
+                        <h3 class="block-title"><i class="fas fa-briefcase"></i> Опыт работы</h3>
+                        <div class="block-content">
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-content">
+                                        <h4>Системный администратор</h4>
+                                        <p class="timeline-subtitle">Школа (6 месяцев)</p>
+                                        <ul>
+                                            <li>Обслуживание компьютерной техники и сети</li>
+                                            <li>Поддержка IT-инфраструктуры учебного заведения</li>
+                                            <li>Решение технических проблем пользователей</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-content">
+                                        <h4>Фриланс-проекты на Python</h4>
+                                        <p class="timeline-subtitle">Удаленная работа</p>
+                                        <ul>
+                                            <li>Разработка скриптов для автоматизации рутины</li>
+                                            <li>Создание Telegram-ботов</li>
+                                            <li>Оптимизация рабочих процессов</li>
+                                            <li>Несколько проектов продолжают приносить пассивный доход</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Блок "Проекты" -->
+                    <div class="resume-block animate-on-scroll">
+                        <h3 class="block-title"><i class="fas fa-project-diagram"></i> Проекты</h3>
+                        <div class="block-content">
+                            <div class="projects-grid">
+                                <div class="project-card">
+                                    <h4>Python-проекты для автоматизации</h4>
+                                    <p>Несколько проектов на Python, которые помогают оптимизировать рутинные задачи. Некоторые из них продолжают приносить пассивный доход.</p>
+                                    <div class="project-tech">
+                                        <span class="tech-tag">Python</span>
+                                        <span class="tech-tag">Автоматизация</span>
+                                        <span class="tech-tag">Оптимизация</span>
+                                    </div>
+                                </div>
+                                <div class="project-card">
+                                    <h4>ИИ модели и компьютерное зрение</h4>
+                                    <p>Опыт работы с YOLO, создание собственных датасетов и обучение моделей компьютерного зрения для различных задач.</p>
+                                    <div class="project-tech">
+                                        <span class="tech-tag">YOLO</span>
+                                        <span class="tech-tag">Computer Vision</span>
+                                        <span class="tech-tag">Датасеты</span>
+                                    </div>
+                                </div>
+                                <div class="project-card">
+                                    <h4>Telegram боты</h4>
+                                    <p>Разработка функциональных Telegram-ботов для различных целей, от уведомлений до автоматизации процессов.</p>
+                                    <div class="project-tech">
+                                        <span class="tech-tag">Python</span>
+                                        <span class="tech-tag">Telegram API</span>
+                                        <span class="tech-tag">Боты</span>
+                                    </div>
+                                </div>
+                                <div class="project-card">
+                                    <h4>DevOps проекты</h4>
+                                    <p>Изучение и применение DevOps-практик, настройка CI/CD, работа с контейнеризацией и облачными сервисами.</p>
+                                    <div class="project-tech">
+                                        <span class="tech-tag">DevOps</span>
+                                        <span class="tech-tag">CI/CD</span>
+                                        <span class="tech-tag">Docker</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Блок "Интересы и цели" -->
+                    <div class="resume-block animate-on-scroll">
+                        <h3 class="block-title"><i class="fas fa-bullseye"></i> Интересы и цели</h3>
+                        <div class="block-content">
+                            <div class="interests-grid">
+                                <div class="interest-item">
+                                    <i class="fas fa-gamepad"></i>
+                                    <h4>WebGL игры</h4>
+                                    <p>Интересуюсь разработкой игр на WebGL, изучаю возможности браузерной графики</p>
+                                </div>
+                                <div class="interest-item">
+                                    <i class="fas fa-palette"></i>
+                                    <h4>Дизайн в Figma</h4>
+                                    <p>Создаю дизайны сайтов и интерфейсов, развиваю навыки UI/UX дизайна</p>
+                                </div>
+                                <div class="interest-item">
+                                    <i class="fas fa-cogs"></i>
+                                    <h4>C# разработка</h4>
+                                    <p>Начал изучать C# для расширения своих возможностей в разработке</p>
+                                </div>
+                                <div class="interest-item">
+                                    <i class="fas fa-search"></i>
+                                    <h4>Поиск работы</h4>
+                                    <p>Активно ищу возможности для профессионального роста в IT-сфере</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Блок "Контакты для связи" -->
+                    <div class="resume-block animate-on-scroll">
+                        <h3 class="block-title"><i class="fas fa-paper-plane"></i> Контакты для связи</h3>
+                        <div class="block-content contact-info">
+                            <p><i class="fas fa-envelope"></i> <strong>Email:</strong> alex.petrov@example.com</p>
+                            <p><i class="fas fa-phone"></i> <strong>Телефон:</strong> +7 (999) 123-45-67</p>
+                            <a href="https://github.com/Mr-AKULA" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                                <img src="images/ui/GitHub.svg" alt="GitHub" class="social-icon" width="24" height="24">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Кнопка для скачивания резюме -->
+                <div class="resume-actions">
+                    <a href="#" class="btn" id="downloadResumeBtn">
+                        <i class="fas fa-download"></i> Скачать резюме (PDF)
+                    </a>
+                    <a href="contact.html" class="btn btn-outline">
+                        <i class="fas fa-envelope"></i> Связаться со мной
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Подвал сайта -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <!-- <h3>Алексеев Павел</h3> -->
+                    <p>Персональный сайт-портфолио, созданный с использованием HTML, CSS и JavaScript и занимаюсь кодом</p>
+                    <div class="social-links">
+                        <a href="https://vk.com/akulaisboy" target="_blank" rel="noopener noreferrer" aria-label="ВКонтакте">
+                            <img src="images/ui/vk.svg" alt="VK" class="social-icon" width="24" height="24">
+                        </a>
+                        <a href="https://github.com/Mr-AKULA" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                            <img src="images/ui/GitHub.svg" alt="GitHub" class="social-icon" width="24" height="24">
+                        </a>
+                        <a href="https://t.me/MRAKUL" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+                            <img src="images/ui/Telegram.svg" alt="Telegram" class="social-icon" width="24" height="24">
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Контактная информация</h3>
+                    <p><i class="fas fa-envelope"></i> xarizmatv36@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +7 (999) 813-45-60</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Йошкар-Ола, Россия</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Быстрые ссылки</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="contact.html">Контакты</a></li>
+                        <li><a href="guestbook.html">Оставить отзыв</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Персональный сайт. Все права защищены.</p>
+                <p class="footer-note">Сайт создан в рамках учебного проекта по веб-разработке</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Скрипты -->
+    <script src="js/main.js"></script>
+    <script src="js/resume.js"></script>
+</body>
+</html>

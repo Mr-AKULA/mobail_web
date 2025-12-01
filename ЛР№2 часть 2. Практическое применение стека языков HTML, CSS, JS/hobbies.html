@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Хобби и увлечения</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/hobbies.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="site-title">Алексеев Павел</h1>
+                <p class="site-subtitle">Веб-разработчик & Дизайнер & Хелпер</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Навигационное меню -->
+    <nav class="main-nav">
+        <div class="container">
+            <button class="menu-toggle" id="menuToggle" aria-label="Открыть меню">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-list" id="navList">
+                <li><a href="index.html"><i class="fas fa-home"></i> Главная</a></li>
+                <li><a href="resume.html"><i class="fas fa-file-alt"></i> Резюме</a></li>
+                <li><a href="hobbies.html" class="active"><i class="fas fa-heart"></i> Хобби</a></li>
+                <li><a href="photos.html"><i class="fas fa-camera"></i> Фотографии</a></li>
+                <li><a href="guestbook.html"><i class="fas fa-book"></i> Обращения</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> Контакты</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Основной контент -->
+    <main class="main-content">
+        <div class="container">
+            <section class="hobbies-section">
+                <h2 class="section-title"><i class="fas fa-heart"></i> Мои хобби и увлечения</h2>
+                <p class="section-description">Помимо веб-разработки у меня есть много увлечений, которые помогают мне отдыхать, развиваться и находить вдохновение для новых проектов.</p>
+                
+                <!-- Основные хобби -->
+                <div class="hobbies-grid" id="hobbiesGrid">
+                    <!-- Хобби будут загружены через JS -->
+                    <div class="loading">
+                        <div class="spinner"></div>
+                        <p>Загрузка информации о хобби...</p>
+                    </div>
+                </div>
+                
+                <!-- Интерактивный выбор хобби -->
+                <div class="hobby-selector animate-on-scroll">
+                    <h3 class="selector-title">Какое хобби вам интересно?</h3>
+                    <div class="selector-buttons" id="hobbySelector">
+                        <!-- Кнопки будут добавлены через JS -->
+                    </div>
+                    <div class="hobby-details" id="hobbyDetails">
+                        <p>Выберите хобби из списка выше, чтобы узнать больше</p>
+                    </div>
+                </div>
+                
+                <!-- Расписание хобби -->
+                <div class="hobby-schedule animate-on-scroll">
+                    <h3 class="schedule-title"><i class="fas fa-calendar-alt"></i> Расписание моих увлечений</h3>
+                    <div class="schedule-container" id="hobbySchedule">
+                        <!-- Расписание будет добавлено через JS -->
+                    </div>
+                </div>
+                
+                <!-- Галерея хобби -->
+                <div class="hobby-gallery animate-on-scroll">
+                    <h3 class="gallery-title"><i class="fas fa-images"></i> Галерея моих увлечений</h3>
+                    <div class="gallery-grid" id="hobbyGallery">
+                        <!-- Галерея будет добавлена через JS -->
+                    </div>
+                </div>
+                
+                <!-- Интерактивный тест -->
+                <div class="hobby-quiz animate-on-scroll">
+                    <h3 class="quiz-title"><i class="fas fa-question-circle"></i> Какое хобби вам подходит?</h3>
+                    <div class="quiz-container" id="hobbyQuiz">
+                        <div class="quiz-question">
+                            <p>Как вы предпочитаете проводить свободное время?</p>
+                            <div class="quiz-options">
+                                <button class="quiz-option" data-points="photography:2,music:1,gaming:3">За компьютером или с гаджетами</button>
+                                <button class="quiz-option" data-points="sports:3,travel:2,photography:1">На свежем воздухе</button>
+                                <button class="quiz-option" data-points="music:3,reading:2,cooking:1">В помещении, занимаясь творчеством</button>
+                                <button class="quiz-option" data-points="travel:3,sports:1,gaming:2">В компании друзей</button>
+                            </div>
+                        </div>
+                        <button class="btn" id="quizResultBtn">Узнать результат</button>
+                        <div class="quiz-result" id="quizResult"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+
+    <!-- Подвал сайта -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <!-- <h3>Алексеев Павел</h3> -->
+                    <p>Персональный сайт-портфолио, созданный с использованием HTML, CSS и JavaScript и занимаюсь кодом</p>
+                    <div class="social-links">
+                        <a href="https://vk.com/akulaisboy" target="_blank" rel="noopener noreferrer" aria-label="ВКонтакте">
+                            <img src="images/ui/vk.svg" alt="VK" class="social-icon" width="24" height="24">
+                        </a>
+                        <a href="https://github.com/Mr-AKULA" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                            <img src="images/ui/GitHub.svg" alt="GitHub" class="social-icon" width="24" height="24">
+                        </a>
+                        <a href="https://t.me/MRAKUL" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+                            <img src="images/ui/Telegram.svg" alt="Telegram" class="social-icon" width="24" height="24">
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Контактная информация</h3>
+                    <p><i class="fas fa-envelope"></i> xarizmatv36@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +7 (999) 813-45-60</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Йошкар-Ола, Россия</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Быстрые ссылки</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="contact.html">Контакты</a></li>
+                        <li><a href="guestbook.html">Оставить отзыв</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Персональный сайт. Все права защищены.</p>
+                <p class="footer-note">Сайт создан в рамках учебного проекта по веб-разработке</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Скрипты -->
+    <script src="js/main.js"></script>
+    <script src="js/hobbies.js"></script>
+</body>
+</html>

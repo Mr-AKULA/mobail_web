@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="site-title">Алексеев Павел</h1>
+                <p class="site-subtitle">Веб-разработчик & Дизайнер & Разработчик</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Навигационное меню -->
+    <nav class="main-nav">
+        <div class="container">
+            <button class="menu-toggle" id="menuToggle" aria-label="Открыть меню">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-list" id="navList">
+                <li><a href="index.html"><i class="fas fa-home"></i> Главная</a></li>
+                <li><a href="resume.html"><i class="fas fa-file-alt"></i> Резюме</a></li>
+                <li><a href="hobbies.html"><i class="fas fa-heart"></i> Хобби</a></li>
+                <li><a href="photos.html"><i class="fas fa-camera"></i> Фотографии</a></li>
+                <li><a href="guestbook.html"><i class="fas fa-book"></i> Обращения</a></li>
+                <li><a href="contact.html" class="active"><i class="fas fa-envelope"></i> Контакты</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Основной контент -->
+    <main class="main-content">
+        <div class="container">
+            <section class="contact-section">
+                <h2 class="section-title"><i class="fas fa-envelope"></i> Контакты</h2>
+                <p class="section-description">Свяжитесь со мной любым удобным способом. Я открыт для сотрудничества, новых проектов и интересных предложений.</p>
+                
+                <div class="contact-container">
+                    <!-- Контактная информация -->
+                    <!-- <div class="contact-info animate-on-scroll"> -->
+                        <!-- <h3 class="contact-subtitle">Контактная информация</h3>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Email</h4>
+                                <p>alex.petrov@example.com</p>
+                                <a href="mailto:alex.petrov@example.com" class="contact-link">Написать письмо</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Телефон</h4>
+                                <p>+7 (999) 123-45-67</p>
+                                <a href="tel:+79991234567" class="contact-link">Позвонить</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Адрес</h4>
+                                <p>Москва, Россия</p>
+                                <p class="contact-note">Работаю удаленно, доступен для онлайн-встреч</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Часы работы</h4>
+                                <p>Пн-Пт: 9:00 - 18:00</p>
+                                <p>Сб-Вс: По договоренности</p>
+                            </div>
+                        </div>
+                        
+                        <div class="social-contact">
+                            <h4>Социальные сети</h4>
+                            <div class="social-icons">
+                                <a href="#" class="social-icon" aria-label="ВКонтакте">
+                                    <i class="fab fa-vk"></i>
+                                </a>
+                                <a href="#" class="social-icon" aria-label="GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="social-icon" aria-label="Telegram">
+                                    <i class="fab fa-telegram"></i>
+                                </a>
+                                <a href="#" class="social-icon" aria-label="LinkedIn">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="#" class="social-icon" aria-label="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div> -->
+                    
+                    <!-- Форма обратной связи -->
+                    <div class="contact-form-container animate-on-scroll">
+                        <h3 class="contact-subtitle">Форма обратной связи</h3>
+                        <form id="contactForm" class="contact-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="contactName">Ваше имя *</label>
+                                    <input type="text" id="contactName" name="name" required placeholder="Введите ваше имя">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="contactEmail">Email *</label>
+                                    <input type="email" id="contactEmail" name="email" required placeholder="email@example.com">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="contactSubject">Тема сообщения</label>
+                                <input type="text" id="contactSubject" name="subject" placeholder="Тема вашего сообщения">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="contactMessage">Сообщение *</label>
+                                <textarea id="contactMessage" name="message" required rows="6" placeholder="Опишите ваше предложение или вопрос..."></textarea>
+                            </div>
+                            
+                            <div class="form-group checkbox-group">
+                                <input type="checkbox" id="contactAgreement" name="agreement" required>
+                                <label for="contactAgreement">Я согласен на обработку персональных данных</label>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-submit">
+                                <i class="fas fa-paper-plane"></i> Отправить сообщение
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Карта -->
+                <div class="contact-map animate-on-scroll">
+                    <h3 class="map-title"><i class="fas fa-map"></i>Йошкар-Ола - мой город</h3>
+                    <div class="map-container" id="map">
+                        <!-- Карта будет загружена через JS -->
+                    </div>
+                    <p class="map-note">На карте отмечен примерный район моего проживания в Йошкар-Оле</p>
+                </div>
+                
+                <!-- FAQ -->
+                <div class="contact-faq animate-on-scroll">
+                    <h3 class="faq-title"><i class="fas fa-question-circle"></i> Часто задаваемые вопросы</h3>
+                    <div class="faq-container" id="faqContainer">
+                        <!-- FAQ будет загружен через JS -->
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Подвал сайта -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <!-- <h3>Алексеев Павел</h3> -->
+                    <p>Персональный сайт-портфолио, созданный с использованием HTML, CSS и JavaScript и занимаюсь кодом</p>
+                    <div class="social-links">
+                        <a href="https://vk.com/akulaisboy" target="_blank" rel="noopener noreferrer" aria-label="ВКонтакте">
+                            <img src="images/ui/vk.svg" alt="VK" class="social-icon" width="24" height="24">
+                        </a>
+                        <a href="https://github.com/Mr-AKULA" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                            <img src="images/ui/GitHub.svg" alt="GitHub" class="social-icon" width="24" height="24">
+                        </a>
+                        <a href="https://t.me/MRAKUL" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+                            <img src="images/ui/Telegram.svg" alt="Telegram" class="social-icon" width="24" height="24">
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Контактная информация</h3>
+                    <p><i class="fas fa-envelope"></i> xarizmatv36@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +7 (999) 813-45-60</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Йошкар-Ола, Россия</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Быстрые ссылки</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="contact.html">Контакты</a></li>
+                        <li><a href="guestbook.html">Оставить отзыв</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Персональный сайт. Все права защищены.</p>
+                <p class="footer-note">Сайт создан в рамках учебного проекта по веб-разработке</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Скрипты -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/contact.js"></script>
+</body>
+</html>
