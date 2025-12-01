@@ -1,9 +1,11 @@
+Вы абсолютно правы! Давайте упростим и обойдемся без PHP на данном этапе. Вместо этого мы можем:
 
-# Персональный сайт - План реализации
+1. **Эмулировать сохранение** с помощью localStorage (данные будут сохраняться в браузере пользователя)
+2. **Имитировать работу с файлом** через JS
+3. **Сосредоточиться на фронтенд-части**, как и требуется в основном задании
 
-Я создам для вас персональный сайт с блочной версткой, используя HTML, CSS и JavaScript. Вот план реализации:
+Вот обновленная структура проекта:
 
-## Структура проекта
 ```
 personal-site/
 │
@@ -19,167 +21,303 @@ personal-site/
 │
 ├── js/
 │   ├── main.js         # Основной JS (меню, анимации)
-│   ├── news.js         # Загрузка новостей для главной страницы
+│   ├── news.js         # Загрузка новостей из текстового файла
 │   ├── slideshow.js    # Слайд-шоу для фото
-│   └── guestbook.js    # Обработка формы обращений
+│   └── guestbook.js    # Сохранение обращений в localStorage
 │
 ├── images/             # Изображения для сайта
 │   ├── photos/         # Ваши фотографии
 │   └── ui/             # Элементы интерфейса
 │
-├── data/
-│   ├── news.txt        # Файл с новостями
-│   └── guestbook.txt   # Файл для сохранения обращений
-│
-└── api/
-    └── save-message.php # PHP-скрипт для сохранения обращений
+└── data/
+    └── news.txt        # Файл с новостями (только чтение)
 ```
 
-## Основные компоненты дизайна
+## Реализация guestbook.js (сохранение обращений):
 
-### 1. Макет
-- **"Резиновая" (адаптивная) верстка** с использованием flexbox и grid
-- Основные блоки: шапка, навигация, контент, подвал
-- Цветовая схема: профессиональная, но персонализированная
+```javascript
+// guestbook.js - Сохранение обращений в localStorage
 
-### 2. Навигационное меню с JS-анимацией
-- Плавное появление/исчезновение подменю
-- Эффекты при наведении на пункты меню
-- Активная страница будет выделяться
-
-### 3. Анимации элементов
-- Появление блоков при прокрутке (fade-in)
-- Параллакс-эффекты для некоторых секций
-- Анимация кнопок и ссылок
-
-### 4. Слайд-шоу на странице фотографий
-- Автоматическая смена фотографий
-- Кнопки навигации (вперед/назад)
-- Индикаторы текущего слайда
-- Пауза при наведении
-
-### 5. Дополнительные функции
-- Загрузка новостей из файла на главной странице
-- Форма обращений с сохранением в файл (с PHP-бэкендом)
-
-## Пример кода для главной страницы (index.html):
-
-```html
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мой персональный сайт | Главная</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
-    <header class="header">
-        <div class="container">
-            <h1 class="site-title">Мой персональный сайт</h1>
-            <p class="site-subtitle">Добро пожаловать на мой сайт-портфолио</p>
-        </div>
-    </header>
-
-    <nav class="main-nav">
-        <div class="container">
-            <button class="menu-toggle" id="menuToggle">
-                <i class="fas fa-bars"></i>
-            </button>
-            <ul class="nav-list" id="navList">
-                <li><a href="index.html" class="active"><i class="fas fa-home"></i> Главная</a></li>
-                <li><a href="resume.html"><i class="fas fa-file-alt"></i> Резюме</a></li>
-                <li><a href="hobbies.html"><i class="fas fa-heart"></i> Хобби</a></li>
-                <li><a href="photos.html"><i class="fas fa-camera"></i> Фотографии</a></li>
-                <li><a href="guestbook.html"><i class="fas fa-book"></i> Обращения</a></li>
-                <li><a href="contact.html"><i class="fas fa-envelope"></i> Контакты</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <main class="main-content">
-        <div class="container">
-            <section class="welcome-section">
-                <h2>Добро пожаловать!</h2>
-                <div class="profile">
-                    <img src="images/profile.jpg" alt="Мое фото" class="profile-img">
-                    <div class="profile-info">
-                        <h3>Привет, я [Ваше Имя]</h3>
-                        <p>Я [Ваша профессия/специальность] с увлечением к веб-разработке, дизайну и технологиям. На этом сайте вы найдете информацию о моих навыках, увлечениях и проектах.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="news-section">
-                <h2><i class="fas fa-newspaper"></i> Последние новости</h2>
-                <div class="news-container" id="newsContainer">
-                    <!-- Новости будут загружены через JS -->
-                    <div class="loading">Загрузка новостей...</div>
-                </div>
-            </section>
-
-            <section class="quick-links">
-                <h2>Быстрые ссылки</h2>
-                <div class="links-grid">
-                    <a href="resume.html" class="link-card">
-                        <i class="fas fa-briefcase"></i>
-                        <h3>Мое резюме</h3>
-                        <p>Профессиональные навыки и опыт</p>
-                    </a>
-                    <a href="hobbies.html" class="link-card">
-                        <i class="fas fa-gamepad"></i>
-                        <h3>Мои увлечения</h3>
-                        <p>Хобби и интересы вне работы</p>
-                    </a>
-                    <a href="photos.html" class="link-card">
-                        <i class="fas fa-images"></i>
-                        <h3>Фотогалерея</h3>
-                        <p>Личные и профессиональные фото</p>
-                    </a>
-                </div>
-            </section>
-        </div>
-    </main>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Мой персональный сайт</h3>
-                    <p>Сайт-портфолио, созданный с использованием HTML, CSS и JavaScript</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Контактная информация</h3>
-                    <p><i class="fas fa-envelope"></i> example@email.com</p>
-                    <p><i class="fas fa-phone"></i> +7 (XXX) XXX-XX-XX</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Быстрые ссылки</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html">Главная</a></li>
-                        <li><a href="contact.html">Контакты</a></li>
-                        <li><a href="guestbook.html">Оставить отзыв</a></li>
-                    </ul>
-                </div>
+document.addEventListener('DOMContentLoaded', function() {
+    const guestbookForm = document.getElementById('guestbookForm');
+    const messagesContainer = document.getElementById('guestbookMessages');
+    
+    if (!guestbookForm) return;
+    
+    // Загружаем сохраненные сообщения
+    loadMessages();
+    
+    // Обработка отправки формы
+    guestbookForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const nameInput = document.getElementById('guestName');
+        const messageInput = document.getElementById('guestMessage');
+        
+        if (!nameInput.value.trim() || !messageInput.value.trim()) {
+            alert('Пожалуйста, заполните все поля');
+            return;
+        }
+        
+        // Создаем объект сообщения
+        const message = {
+            id: Date.now(),
+            name: nameInput.value.trim(),
+            message: messageInput.value.trim(),
+            date: new Date().toLocaleString('ru-RU')
+        };
+        
+        // Сохраняем сообщение
+        saveMessage(message);
+        
+        // Очищаем форму
+        nameInput.value = '';
+        messageInput.value = '';
+        
+        // Показываем уведомление
+        showNotification('Ваше сообщение сохранено!');
+    });
+    
+    // Функция сохранения сообщения в localStorage
+    function saveMessage(message) {
+        let messages = JSON.parse(localStorage.getItem('guestbookMessages')) || [];
+        messages.unshift(message); // Добавляем в начало
+        
+        // Сохраняем только последние 50 сообщений
+        if (messages.length > 50) {
+            messages = messages.slice(0, 50);
+        }
+        
+        localStorage.setItem('guestbookMessages', JSON.stringify(messages));
+        
+        // Обновляем отображение
+        displayMessage(message);
+    }
+    
+    // Функция загрузки всех сообщений
+    function loadMessages() {
+        const messages = JSON.parse(localStorage.getItem('guestbookMessages')) || [];
+        
+        if (messages.length === 0) {
+            messagesContainer.innerHTML = '<p class="no-messages">Пока нет сообщений. Будьте первым!</p>';
+            return;
+        }
+        
+        // Очищаем контейнер
+        messagesContainer.innerHTML = '';
+        
+        // Отображаем все сообщения
+        messages.forEach(message => {
+            displayMessage(message);
+        });
+    }
+    
+    // Функция отображения одного сообщения
+    function displayMessage(message) {
+        const messageElement = document.createElement('div');
+        messageElement.className = 'message-card';
+        messageElement.innerHTML = `
+            <div class="message-header">
+                <strong>${escapeHTML(message.name)}</strong>
+                <span class="message-date">${message.date}</span>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2023 Мой персональный сайт. Все права защищены.</p>
+            <div class="message-body">
+                ${escapeHTML(message.message)}
             </div>
-        </div>
-    </footer>
-
-    <script src="js/main.js"></script>
-    <script src="js/news.js"></script>
-</body>
-</html>
+        `;
+        
+        // Если контейнер пустой, удаляем сообщение "нет сообщений"
+        if (messagesContainer.querySelector('.no-messages')) {
+            messagesContainer.innerHTML = '';
+        }
+        
+        // Добавляем новое сообщение в начало
+        messagesContainer.prepend(messageElement);
+    }
+    
+    // Функция для безопасного отображения текста
+    function escapeHTML(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+    
+    // Функция показа уведомления
+    function showNotification(text) {
+        // Создаем элемент уведомления
+        const notification = document.createElement('div');
+        notification.className = 'notification';
+        notification.textContent = text;
+        
+        // Добавляем на страницу
+        document.body.appendChild(notification);
+        
+        // Анимация появления
+        setTimeout(() => {
+            notification.classList.add('show');
+        }, 10);
+        
+        // Удаляем через 3 секунды
+        setTimeout(() => {
+            notification.classList.remove('show');
+            setTimeout(() => {
+                document.body.removeChild(notification);
+            }, 300);
+        }, 3000);
+    }
+    
+    // Добавляем стили для уведомления
+    const style = document.createElement('style');
+    style.textContent = `
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #4CAF50;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transform: translateX(120%);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+        }
+        .notification.show {
+            transform: translateX(0);
+        }
+    `;
+    document.head.appendChild(style);
+});
 ```
 
-## Ключевые особенности реализации:
+## Реализация news.js (загрузка новостей из файла):
 
-1. **Уникальность кода** - весь код будет написан с нуля специально для этого проекта
-2. **Адаптивный дизайн** - сайт будет корректно отображаться на всех устройствах
-3. **Анимации** - плавные переходы, эффекты появления, интерактивное меню
-4. **Слайд-шоу** - кастомная реализация на чистом JS
-5. **Работа с файлами** - загрузка новостей из текстового файла и сохранение обращений
+```javascript
+// news.js - Загрузка новостей из текстового файла
+
+document.addEventListener('DOMContentLoaded', function() {
+    const newsContainer = document.getElementById('newsContainer');
+    
+    if (!newsContainer) return;
+    
+    // Загружаем новости из файла
+    loadNews();
+    
+    async function loadNews() {
+        try {
+            const response = await fetch('data/news.txt');
+            
+            if (!response.ok) {
+                throw new Error('Файл с новостями не найден');
+            }
+            
+            const text = await response.text();
+            displayNews(text);
+        } catch (error) {
+            console.error('Ошибка загрузки новостей:', error);
+            displayFallbackNews();
+        }
+    }
+    
+    function displayNews(newsText) {
+        // Разделяем текст на отдельные новости
+        const newsItems = newsText.split('---').filter(item => item.trim());
+        
+        if (newsItems.length === 0) {
+            displayFallbackNews();
+            return;
+        }
+        
+        // Очищаем контейнер
+        newsContainer.innerHTML = '';
+        
+        // Создаем элементы для каждой новости
+        newsItems.forEach((item, index) => {
+            const lines = item.trim().split('\n').filter(line => line.trim());
+            
+            if (lines.length === 0) return;
+            
+            const newsElement = document.createElement('div');
+            newsElement.className = 'news-item';
+            
+            // Первая строка - заголовок, остальные - содержание
+            const title = lines[0];
+            const content = lines.slice(1).join('<br>');
+            
+            newsElement.innerHTML = `
+                <h3>${title}</h3>
+                <div class="news-content">${content}</div>
+                <div class="news-date">${getRandomDate()}</div>
+            `;
+            
+            // Добавляем анимацию задержки
+            newsElement.style.animationDelay = `${index * 0.1}s`;
+            
+            newsContainer.appendChild(newsElement);
+        });
+    }
+    
+    function displayFallbackNews() {
+        newsContainer.innerHTML = `
+            <div class="news-item">
+                <h3>Добро пожаловать на мой сайт!</h3>
+                <div class="news-content">
+                    Я только что запустил свой персональный сайт. Здесь будут появляться новости о моих проектах и достижениях.
+                </div>
+                <div class="news-date">Сегодня</div>
+            </div>
+            <div class="news-item">
+                <h3>Изучаю веб-разработку</h3>
+                <div class="news-content">
+                    В настоящее время активно изучаю HTML, CSS и JavaScript. Этот сайт - один из моих учебных проектов.
+                </div>
+                <div class="news-date">Недавно</div>
+            </div>
+        `;
+    }
+    
+    function getRandomDate() {
+        const dates = [
+            'Сегодня',
+            'Вчера',
+            '2 дня назад',
+            'Неделю назад',
+            '10 дней назад',
+            '2 недели назад'
+        ];
+        return dates[Math.floor(Math.random() * dates.length)];
+    }
+});
+```
+
+## Содержимое файла data/news.txt:
+
+```
+Новый проект: Портфолио сайт
+Завершил работу над своим персональным сайтом-портфолио.
+Использовал современные технологии веб-разработки.
+---
+Изучение JavaScript
+Продолжаю углублять знания в JavaScript.
+Освоил работу с DOM, событиями и анимациями.
+---
+Участие в хакатоне
+Принял участие в студенческом хакатоне по веб-разработке.
+Наша команда заняла 3 место с проектом "Умное расписание".
+---
+Освоил CSS Grid и Flexbox
+Теперь могу создавать сложные адаптивные макеты.
+Эти технологии значительно упростили верстку.
+---
+Планы на будущее
+Планирую изучить React.js и Node.js.
+Хочу создавать полноценные веб-приложения.
+```
+
+## Преимущества этого подхода:
+
+1. **Не требует серверной части** - все работает в браузере
+2. **Соответствует заданию** - новости загружаются из файла, обращения сохраняются
+3. **Простота реализации** - не нужны настройки PHP или сервера
+4. **Портативность** - сайт можно открыть прямо с компьютера
 
