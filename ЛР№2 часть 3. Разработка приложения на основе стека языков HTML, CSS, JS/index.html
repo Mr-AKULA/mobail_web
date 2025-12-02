@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeoCalc - Калькулятор геометрии</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 30px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .logo {
+            font-size: 48px;
+            margin-bottom: 10px;
+            animation: rotate 3s ease-in-out infinite;
+        }
+
+        @keyframes rotate {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(180deg); }
+        }
+
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+
+        .header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 30px 20px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+            font-size: 14px;
+        }
+
+        select, input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s;
+            background: white;
+        }
+
+        select:focus, input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .input-group {
+            display: none;
+            animation: fadeIn 0.3s;
+        }
+
+        .input-group.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .figure-image {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 80px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 15px;
+            transition: all 0.3s;
+        }
+
+        .calculate-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 20px;
+        }
+
+        .calculate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .calculate-btn:active {
+            transform: translateY(0);
+        }
+
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 15px;
+            display: none;
+        }
+
+        .result.active {
+            display: block;
+            animation: slideUp 0.4s;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .result h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .result-item {
+            padding: 12px;
+            background: white;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .result-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .result-label {
+            font-weight: 600;
+            color: #555;
+        }
+
+        .result-value {
+            font-size: 18px;
+            color: #667eea;
+            font-weight: 700;
+        }
+
+        .error {
+            background: #fee;
+            color: #c33;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            display: none;
+            border-left: 4px solid #c33;
+        }
+
+        .error.active {
+            display: block;
+            animation: shake 0.5s;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        .dimension-type {
+            display: inline-block;
+            padding: 4px 10px;
+            background: #667eea;
+            color: white;
+            border-radius: 5px;
+            font-size: 12px;
+            margin-left: 10px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">📐</div>
+            <h1>GeoCalc</h1>
+            <p>Калькулятор геометрических фигур</p>
+        </div>
+
+        <div class="content">
+            <div class="form-group">
+                <label for="figureType">Выберите фигуру:</label>
+                <select id="figureType">
+                    <option value="">-- Выберите фигуру --</option>
+                    <optgroup label="2D Фигуры">
+                        <option value="square">Квадрат</option>
+                        <option value="rectangle">Прямоугольник</option>
+                        <option value="triangle">Треугольник</option>
+                        <option value="parallelogram">Параллелограмм</option>
+                        <option value="trapezoid">Трапеция</option>
+                        <option value="rhombus">Ромб</option>
+                        <option value="circle">Круг</option>
+                    </optgroup>
+                    <optgroup label="3D Фигуры">
+                        <option value="cube">Куб</option>
+                        <option value="parallelepiped">Параллелепипед</option>
+                        <option value="cone">Конус</option>
+                        <option value="pyramid">Пирамида</option>
+                        <option value="cylinder">Цилиндр</option>
+                        <option value="sphere">Шар</option>
+                    </optgroup>
+                </select>
+            </div>
+
+            <div class="figure-image" id="figureImage"></div>
+
+            <div id="inputFields"></div>
+
+            <button class="calculate-btn" id="calculateBtn" style="display: none;">Рассчитать</button>
+
+            <div class="error" id="error"></div>
+            <div class="result" id="result"></div>
+        </div>
+    </div>
+
+    <script>
+        const figures = {
+            square: {
+                name: 'Квадрат',
+                emoji: '⬛',
+                dimension: '2D',
+                inputs: [
+                    { id: 'side', label: 'Сторона (a)', placeholder: 'Введите длину стороны' }
+                ],
+                calculate: (v) => ({
+                    'Периметр': 4 * v.side,
+                    'Площадь': v.side * v.side
+                })
+            },
+            rectangle: {
+                name: 'Прямоугольник',
+                emoji: '▭',
+                dimension: '2D',
+                inputs: [
+                    { id: 'length', label: 'Длина (a)', placeholder: 'Введите длину' },
+                    { id: 'width', label: 'Ширина (b)', placeholder: 'Введите ширину' }
+                ],
+                calculate: (v) => ({
+                    'Периметр': 2 * (v.length + v.width),
+                    'Площадь': v.length * v.width
+                })
+            },
+            triangle: {
+                name: 'Треугольник',
+                emoji: '△',
+                dimension: '2D',
+                inputs: [
+                    { id: 'sideA', label: 'Сторона a', placeholder: 'Введите сторону a' },
+                    { id: 'sideB', label: 'Сторона b', placeholder: 'Введите сторону b' },
+                    { id: 'sideC', label: 'Сторона c', placeholder: 'Введите сторону c' }
+                ],
+                calculate: (v) => {
+                    const p = (v.sideA + v.sideB + v.sideC) / 2;
+                    const area = Math.sqrt(p * (p - v.sideA) * (p - v.sideB) * (p - v.sideC));
+                    return {
+                        'Периметр': v.sideA + v.sideB + v.sideC,
+                        'Площадь (по формуле Герона)': area
+                    };
+                }
+            },
+            parallelogram: {
+                name: 'Параллелограмм',
+                emoji: '▱',
+                dimension: '2D',
+                inputs: [
+                    { id: 'base', label: 'Основание (a)', placeholder: 'Введите основание' },
+                    { id: 'side', label: 'Сторона (b)', placeholder: 'Введите сторону' },
+                    { id: 'height', label: 'Высота (h)', placeholder: 'Введите высоту' }
+                ],
+                calculate: (v) => ({
+                    'Периметр': 2 * (v.base + v.side),
+                    'Площадь': v.base * v.height
+                })
+            },
+            trapezoid: {
+                name: 'Трапеция',
+                emoji: '⏢',
+                dimension: '2D',
+                inputs: [
+                    { id: 'baseA', label: 'Основание a', placeholder: 'Введите основание a' },
+                    { id: 'baseB', label: 'Основание b', placeholder: 'Введите основание b' },
+                    { id: 'sideC', label: 'Сторона c', placeholder: 'Введите сторону c' },
+                    { id: 'sideD', label: 'Сторона d', placeholder: 'Введите сторону d' },
+                    { id: 'height', label: 'Высота (h)', placeholder: 'Введите высоту' }
+                ],
+                calculate: (v) => ({
+                    'Периметр': v.baseA + v.baseB + v.sideC + v.sideD,
+                    'Площадь': ((v.baseA + v.baseB) / 2) * v.height
+                })
+            },
+            rhombus: {
+                name: 'Ромб',
+                emoji: '◆',
+                dimension: '2D',
+                inputs: [
+                    { id: 'side', label: 'Сторона (a)', placeholder: 'Введите сторону' },
+                    { id: 'diagonal1', label: 'Диагональ d₁', placeholder: 'Введите диагональ 1' },
+                    { id: 'diagonal2', label: 'Диагональ d₂', placeholder: 'Введите диагональ 2' }
+                ],
+                calculate: (v) => ({
+                    'Периметр': 4 * v.side,
+                    'Площадь': (v.diagonal1 * v.diagonal2) / 2
+                })
+            },
+            circle: {
+                name: 'Круг',
+                emoji: '⭕',
+                dimension: '2D',
+                inputs: [
+                    { id: 'radius', label: 'Радиус (r)', placeholder: 'Введите радиус' }
+                ],
+                calculate: (v) => ({
+                    'Длина окружности': 2 * Math.PI * v.radius,
+                    'Площадь': Math.PI * v.radius * v.radius
+                })
+            },
+            cube: {
+                name: 'Куб',
+                emoji: '🎲',
+                dimension: '3D',
+                inputs: [
+                    { id: 'side', label: 'Ребро (a)', placeholder: 'Введите длину ребра' }
+                ],
+                calculate: (v) => ({
+                    'Площадь поверхности': 6 * v.side * v.side,
+                    'Объём': v.side * v.side * v.side
+                })
+            },
+            parallelepiped: {
+                name: 'Параллелепипед',
+                emoji: '📦',
+                dimension: '3D',
+                inputs: [
+                    { id: 'length', label: 'Длина (a)', placeholder: 'Введите длину' },
+                    { id: 'width', label: 'Ширина (b)', placeholder: 'Введите ширину' },
+                    { id: 'height', label: 'Высота (c)', placeholder: 'Введите высоту' }
+                ],
+                calculate: (v) => ({
+                    'Площадь поверхности': 2 * (v.length * v.width + v.length * v.height + v.width * v.height),
+                    'Объём': v.length * v.width * v.height
+                })
+            },
+            cone: {
+                name: 'Конус',
+                emoji: '🔺',
+                dimension: '3D',
+                inputs: [
+                    { id: 'radius', label: 'Радиус (r)', placeholder: 'Введите радиус основания' },
+                    { id: 'height', label: 'Высота (h)', placeholder: 'Введите высоту' }
+                ],
+                calculate: (v) => {
+                    const l = Math.sqrt(v.radius * v.radius + v.height * v.height);
+                    return {
+                        'Площадь поверхности': Math.PI * v.radius * (v.radius + l),
+                        'Объём': (1/3) * Math.PI * v.radius * v.radius * v.height
+                    };
+                }
+            },
+            pyramid: {
+                name: 'Пирамида',
+                emoji: '🔺',
+                dimension: '3D',
+                inputs: [
+                    { id: 'base', label: 'Сторона основания (a)', placeholder: 'Введите сторону основания' },
+                    { id: 'height', label: 'Высота (h)', placeholder: 'Введите высоту' }
+                ],
+                calculate: (v) => {
+                    const slantHeight = Math.sqrt(v.height * v.height + (v.base / 2) * (v.base / 2));
+                    return {
+                        'Площадь поверхности': v.base * v.base + 2 * v.base * slantHeight,
+                        'Объём': (1/3) * v.base * v.base * v.height
+                    };
+                }
+            },
+            cylinder: {
+                name: 'Цилиндр',
+                emoji: '🥫',
+                dimension: '3D',
+                inputs: [
+                    { id: 'radius', label: 'Радиус (r)', placeholder: 'Введите радиус основания' },
+                    { id: 'height', label: 'Высота (h)', placeholder: 'Введите высоту' }
+                ],
+                calculate: (v) => ({
+                    'Площадь поверхности': 2 * Math.PI * v.radius * (v.radius + v.height),
+                    'Объём': Math.PI * v.radius * v.radius * v.height
+                })
+            },
+            sphere: {
+                name: 'Шар',
+                emoji: '⚽',
+                dimension: '3D',
+                inputs: [
+                    { id: 'radius', label: 'Радиус (r)', placeholder: 'Введите радиус' }
+                ],
+                calculate: (v) => ({
+                    'Площадь поверхности': 4 * Math.PI * v.radius * v.radius,
+                    'Объём': (4/3) * Math.PI * v.radius * v.radius * v.radius
+                })
+            }
+        };
+
+        const figureTypeSelect = document.getElementById('figureType');
+        const inputFieldsDiv = document.getElementById('inputFields');
+        const calculateBtn = document.getElementById('calculateBtn');
+        const resultDiv = document.getElementById('result');
+        const errorDiv = document.getElementById('error');
+        const figureImage = document.getElementById('figureImage');
+
+        figureTypeSelect.addEventListener('change', function() {
+            const figureType = this.value;
+            inputFieldsDiv.innerHTML = '';
+            resultDiv.classList.remove('active');
+            errorDiv.classList.remove('active');
+            
+            if (figureType && figures[figureType]) {
+                const figure = figures[figureType];
+                figureImage.textContent = figure.emoji;
+                
+                figure.inputs.forEach(input => {
+                    const div = document.createElement('div');
+                    div.className = 'form-group input-group active';
+                    div.innerHTML = `
+                        <label for="${input.id}">${input.label}:</label>
+                        <input type="number" id="${input.id}" step="0.01" placeholder="${input.placeholder}" required>
+                    `;
+                    inputFieldsDiv.appendChild(div);
+                });
+                
+                calculateBtn.style.display = 'block';
+            } else {
+                figureImage.textContent = '';
+                calculateBtn.style.display = 'none';
+            }
+        });
+
+        calculateBtn.addEventListener('click', function() {
+            const figureType = figureTypeSelect.value;
+            if (!figureType) return;
+
+            const figure = figures[figureType];
+            const values = {};
+            let hasError = false;
+
+            errorDiv.classList.remove('active');
+            
+            figure.inputs.forEach(input => {
+                const element = document.getElementById(input.id);
+                const value = parseFloat(element.value);
+                
+                if (isNaN(value) || value <= 0) {
+                    hasError = true;
+                    element.style.borderColor = '#c33';
+                } else {
+                    element.style.borderColor = '#e0e0e0';
+                    values[input.id] = value;
+                }
+            });
+
+            if (hasError) {
+                errorDiv.textContent = '⚠️ Пожалуйста, введите корректные положительные числа во все поля';
+                errorDiv.classList.add('active');
+                resultDiv.classList.remove('active');
+                return;
+            }
+
+            const results = figure.calculate(values);
+            
+            resultDiv.innerHTML = `
+                <h3>${figure.emoji} ${figure.name} <span class="dimension-type">${figure.dimension}</span></h3>
+                ${Object.entries(results).map(([key, value]) => `
+                    <div class="result-item">
+                        <span class="result-label">${key}:</span>
+                        <span class="result-value">${value.toFixed(2)}</span>
+                    </div>
+                `).join('')}
+            `;
+            resultDiv.classList.add('active');
+        });
+
+        document.addEventListener('input', function(e) {
+            if (e.target.type === 'number') {
+                e.target.style.borderColor = '#e0e0e0';
+                errorDiv.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
