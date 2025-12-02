@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://ssl.gstatic.com 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+    <title>GeoCalc</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>
+    <div class="app">
+        <!-- Кнопка информации об авторе -->
+        <button class="info-btn" id="infoBtn">ℹ️</button>
+
+        <div class="container">
+            <div class="header">
+                <div class="logo">📐</div>
+                <h1>GeoCalc Pro</h1>
+                <p>Профессиональный калькулятор геометрии</p>
+            </div>
+
+            <div class="content">
+                <div class="form-group">
+                    <label for="figureType">Выберите фигуру:</label>
+                    <select id="figureType">
+                        <option value="">-- Выберите фигуру --</option>
+                        <optgroup label="📐 2D Фигуры">
+                            <option value="square">⬛ Квадрат</option>
+                            <option value="rectangle">▭ Прямоугольник</option>
+                            <option value="triangle">△ Треугольник</option>
+                            <option value="parallelogram">▱ Параллелограмм</option>
+                            <option value="trapezoid">⏢ Трапеция</option>
+                            <option value="rhombus">◆ Ромб</option>
+                            <option value="circle">⭕ Круг</option>
+                        </optgroup>
+                        <optgroup label="📦 3D Фигуры">
+                            <option value="cube">🎲 Куб</option>
+                            <option value="parallelepiped">📦 Параллелепипед</option>
+                            <option value="cone">🔺 Конус</option>
+                            <option value="pyramid">🔻 Пирамида</option>
+                            <option value="cylinder">🥫 Цилиндр</option>
+                            <option value="sphere">⚽ Шар</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div class="figure-image" id="figureImage"></div>
+
+                <div id="inputFields"></div>
+
+                <button class="calculate-btn" id="calculateBtn" style="display: none;">
+                    <span>🧮</span> Рассчитать
+                </button>
+
+                <div class="error" id="error"></div>
+                <div class="result" id="result"></div>
+            </div>
+        </div>
+
+        <!-- Модальное окно с информацией об авторе -->
+        <div class="modal" id="authorModal">
+            <div class="modal-content">
+                <button class="modal-close" id="closeModal">✕</button>
+                <div class="author-info">
+                    <div class="author-avatar">👨‍🎓</div>
+                    <h2>Информация о разработчике</h2>
+                    <div class="author-details">
+                        <p><strong>Разработал:</strong></p>
+                        <p class="highlight">студент Алексеев Павел Васильевич</p>
+                        <p><strong>Группа:</strong></p>
+                        <p class="highlight">ИСТ-33</p>
+                        <div class="divider"></div>
+                        <p class="app-info">
+                            <strong>Приложение:</strong> GeoCalc Pro<br>
+                            <strong>Версия:</strong> 1.1.1<br>
+                            <strong>Платформа:</strong> Apache Cordova
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="cordova.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.geocalc.app" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>GeoCalc Pro</name>
+    <description>
+        Профессиональный калькулятор геометрических фигур для расчета периметров, площадей и объёмов.
+    </description>
+    <author email="student@example.com" href="https://geocalc.app">
+        Студент ИСТ-33
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <platform name="android">
+        <allow-intent href="market:*" />
+        <icon density="ldpi" src="res/icon/android/ldpi.png" />
+        <icon density="mdpi" src="res/icon/android/mdpi.png" />
+        <icon density="hdpi" src="res/icon/android/hdpi.png" />
+        <icon density="xhdpi" src="res/icon/android/xhdpi.png" />
+    </platform>
+    <preference name="Orientation" value="portrait" />
+    <preference name="StatusBarOverlaysWebView" value="false" />
+    <preference name="StatusBarBackgroundColor" value="#667eea" />
+</widget>
